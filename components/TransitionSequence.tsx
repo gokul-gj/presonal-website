@@ -13,41 +13,42 @@ const PHOTOS = [
     "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1000&auto=format&fit=crop", // NY
 ];
 
-// This defines the "Final Mosaic" layout. 
-// Instead of random math, we design exactly where each card lands.
+// CONFIG: The final position of the cards (The Mosaic)
 const LAYOUT_CONFIG = [
-    { x: -35, y: -25, rotate: -15, scale: 0.9 }, // Top Left
-    { x: 35, y: -25, rotate: 15, scale: 0.9 },  // Top Right
-    { x: -45, y: 10, rotate: -8, scale: 0.8 },  // Mid Left
-    { x: 45, y: 10, rotate: 8, scale: 0.8 },   // Mid Right
-    { x: -20, y: 35, rotate: -5, scale: 0.85 }, // Bottom Left
-    { x: 20, y: 35, rotate: 5, scale: 0.85 },  // Bottom Right
-    { x: 0, y: 0, rotate: 0, scale: 1.1 },     // CENTER HERO (Last image on top)
+    { x: -30, y: -25, rotate: -15, scale: 0.8, z: 1 },  // Top Left
+    { x: 35, y: -20, rotate: 12, scale: 0.8, z: 2 },   // Top Right
+    { x: -40, y: 5, rotate: -8, scale: 0.9, z: 3 },    // Mid Left
+    { x: 40, y: 0, rotate: 8, scale: 0.9, z: 4 },      // Mid Right
+    { x: -20, y: 30, rotate: -5, scale: 0.85, z: 5 },  // Bottom Left
+    { x: 25, y: 35, rotate: 5, scale: 0.85, z: 6 },    // Bottom Right
+    { x: 0, y: 0, rotate: 0, scale: 1.1, z: 10 },      // CENTER HERO
 ];
 
 export default function TransitionSequence() {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // We make the container tall (300vh) to allow for a long animation sequence
+    // Keep container tall to control animation speed
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
     });
 
-    // --- ANIMATION PHASES ---
+    // --- ANIMATION SEQUENCE ---
 
-    // 1. Text Animation (Parallax behind)
-    const textScale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-    const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    // 1. DROP IN (0% - 40%): 
+    // Cards fall from Top (-120vh) to Center (0vh)
+    const deckY = useTransform(scrollYProgress, [0, 0.4], ["-120vh", "0vh"]);
 
-    // 2. The Deck Movement (The whole cluster moves from bottom to center)
-    const deckY = useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]);
+    // 2. BACKGROUND TEXT (Parallax)
+    const textScale = useTransform(scrollYProgress, [0, 0.5], [1.5, 1]);
+    const textOpacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
 
-    // 3. The Exit (The whole cluster moves up out of view at the end)
+    // 3. EXIT (85% - 100%):
+    // Everything scrolls up away naturally
     const exitY = useTransform(scrollYProgress, [0.85, 1], ["0vh", "-100vh"]);
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-[#050505]">
+        <section ref={containerRef} className="relative h-[400vh] bg-[#050505]">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
 
                 {/* LAYER 1: Background Watermark */}
@@ -61,7 +62,6 @@ export default function TransitionSequence() {
                 </motion.div>
 
                 {/* LAYER 2: The Card Deck */}
-                {/* We wrap everything in motion.divs to handle the Enter and Exit phases */}
                 <motion.div
                     style={{ y: deckY }}
                     className="relative z-10 w-full h-full flex items-center justify-center perspective-[1000px]"
@@ -97,30 +97,28 @@ function Card({
 }: {
     src: string,
     index: number,
-    config: { x: number, y: number, rotate: number, scale: number },
+    config: { x: number, y: number, rotate: number, scale: number, z: number },
     scrollProgress: MotionValue<number>
 }) {
-    // --- INDIVIDUAL CARD PHYSICS ---
+    // --- PHYSICS UPDATE ---
 
-    // 1. SPREAD PHASE (0.3 to 0.7 scroll range)
-    // Before 0.3: Cards are at x:0, y:0 (Stacked)
-    // After 0.7: Cards are at their config.x, config.y (Mosaic)
-    const x = useTransform(scrollProgress, [0.3, 0.7], ["0%", `${config.x}%`]);
-    const y = useTransform(scrollProgress, [0.3, 0.7], ["0%", `${config.y}%`]);
+    // 1. SPREAD & SIZE (0% to 50%)
+    // START: Large (Scale 2.5), Clumped (x:0, y:0)
+    // END: Normal (config.scale), Spread (config.x)
 
-    // 2. ROTATION PHASE
-    // Start with a messy random pile rotation, end with the clean config rotation
-    const randomStartRotate = (index % 2 === 0 ? 5 : -5) * (index + 1);
-    const rotate = useTransform(scrollProgress, [0.3, 0.7], [randomStartRotate, config.rotate]);
+    // Note the Range: [0, 0.5] means it happens AS they drop in.
+    const x = useTransform(scrollProgress, [0, 0.5], ["0vw", `${config.x}vw`]);
+    const y = useTransform(scrollProgress, [0, 0.5], ["0vh", `${config.y}vh`]);
+    const scale = useTransform(scrollProgress, [0, 0.5], [2.5, config.scale]);
 
-    // 3. SCALE PHASE
-    // Start smallish (deck size), expand to full config size
-    const scale = useTransform(scrollProgress, [0.3, 0.7], [0.5, config.scale]);
+    // 2. ROTATION
+    // Start straight or slight random, end at specific angle
+    const rotate = useTransform(scrollProgress, [0, 0.5], [0, config.rotate]);
 
     return (
         <motion.div
-            style={{ x, y, rotate, scale, zIndex: index }}
-            className="absolute w-[30vw] md:w-[20vw] aspect-[3/4] shadow-2xl origin-center"
+            style={{ x, y, rotate, scale, zIndex: config.z }}
+            className="absolute w-[30vw] md:w-[22vw] aspect-[3/4] shadow-2xl origin-center"
         >
             <div className="w-full h-full rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a] group relative">
                 <img
