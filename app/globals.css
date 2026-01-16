@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 5 5 5;
+    --foreground: 237 237 237;
+
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 140 140 140;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
