@@ -13,76 +13,51 @@ const PHOTOS = [
     "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1000&auto=format&fit=crop", // NY
 ];
 
-// CONFIG: The final position of the cards (The Mosaic)
-const LAYOUT_CONFIG = [
-    { x: -30, y: -25, rotate: -15, scale: 0.8, z: 1 },  // Top Left
-    { x: 35, y: -20, rotate: 12, scale: 0.8, z: 2 },   // Top Right
-    { x: -40, y: 5, rotate: -8, scale: 0.9, z: 3 },    // Mid Left
-    { x: 40, y: 0, rotate: 8, scale: 0.9, z: 4 },      // Mid Right
-    { x: -20, y: 30, rotate: -5, scale: 0.85, z: 5 },  // Bottom Left
-    { x: 25, y: 35, rotate: 5, scale: 0.85, z: 6 },    // Bottom Right
-    { x: 0, y: 0, rotate: 0, scale: 1.1, z: 10 },      // CENTER HERO
-];
+// Generate better dispersion positions for wider spread
+const DISPERSION_POSITIONS = PHOTOS.map((_, i) => {
+    const totalPhotos = PHOTOS.length;
+    const centerIndex = (totalPhotos - 1) / 2;
+    const distanceFromCenter = i - centerIndex;
+
+    return {
+        x: distanceFromCenter * 15,  // Horizontal spread: -45vw to 45vw
+        y: ((i * 17) % 30) - 15,  // Vertical variation: -15vh to 15vh
+        scale: 0.6 + ((i * 7) % 15) / 100  // Scale variation: 0.6 to 0.75
+    };
+});
 
 export default function TransitionSequence() {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Keep container tall to control animation speed
+    // Tall container for controlled scroll animation
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
     });
 
-    // --- ANIMATION SEQUENCE ---
-
-    // 1. DROP IN (0% - 40%): 
-    // Cards fall from Top (-120vh) to Center (0vh)
-    const deckY = useTransform(scrollYProgress, [0, 0.4], ["-120vh", "0vh"]);
-
-    // 2. BACKGROUND TEXT (Parallax)
-    const textScale = useTransform(scrollYProgress, [0, 0.5], [1.5, 1]);
-    const textOpacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
-
-    // 3. EXIT (85% - 100%):
-    // Everything scrolls up away naturally
-    const exitY = useTransform(scrollYProgress, [0.85, 1], ["0vh", "-100vh"]);
-
     return (
-        <section ref={containerRef} className="relative h-[400vh] bg-[#050505]">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
+        <section ref={containerRef} className="relative h-[500vh] bg-black">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
 
-                {/* LAYER 1: Background Watermark */}
-                <motion.div
-                    style={{ scale: textScale, opacity: textOpacity }}
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-                >
-                    <h1 className="font-serif text-[22vw] font-bold text-[#141414] tracking-tighter leading-none select-none">
+                {/* Background Text */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                    <h1 className="font-serif text-[20vw] font-bold text-[#0a0a0a] tracking-tighter leading-none select-none">
                         GOKUL GJ
                     </h1>
-                </motion.div>
+                </div>
 
-                {/* LAYER 2: The Card Deck */}
-                <motion.div
-                    style={{ y: deckY }}
-                    className="relative z-10 w-full h-full flex items-center justify-center perspective-[1000px]"
-                >
-                    <motion.div style={{ y: exitY }} className="relative w-full h-full flex items-center justify-center">
-
-                        {PHOTOS.map((src, index) => {
-                            const config = LAYOUT_CONFIG[index % LAYOUT_CONFIG.length];
-                            return (
-                                <Card
-                                    key={index}
-                                    src={src}
-                                    index={index}
-                                    config={config}
-                                    scrollProgress={scrollYProgress}
-                                />
-                            );
-                        })}
-
-                    </motion.div>
-                </motion.div>
+                {/* Card Stack */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    {PHOTOS.map((src, index) => (
+                        <Card
+                            key={index}
+                            src={src}
+                            index={index}
+                            totalCards={PHOTOS.length}
+                            scrollProgress={scrollYProgress}
+                        />
+                    ))}
+                </div>
 
             </div>
         </section>
@@ -92,35 +67,142 @@ export default function TransitionSequence() {
 function Card({
     src,
     index,
-    config,
+    totalCards,
     scrollProgress
 }: {
     src: string,
     index: number,
-    config: { x: number, y: number, rotate: number, scale: number, z: number },
+    totalCards: number,
     scrollProgress: MotionValue<number>
 }) {
-    // --- PHYSICS UPDATE ---
+    const dispersionConfig = DISPERSION_POSITIONS[index];
 
-    // 1. SPREAD & SIZE (0% to 50%)
-    // START: Large (Scale 2.5), Clumped (x:0, y:0)
-    // END: Normal (config.scale), Spread (config.x)
+    // ===== PHASE 1: BOTTOM START & UPWARD REVEAL (0.0 - 0.3) =====
+    // Images start at bottom and move up while scaling
+    const revealStart = 0.0;
+    const revealEnd = 0.3;
 
-    // Note the Range: [0, 0.5] means it happens AS they drop in.
-    const x = useTransform(scrollProgress, [0, 0.5], ["0vw", `${config.x}vw`]);
-    const y = useTransform(scrollProgress, [0, 0.5], ["0vh", `${config.y}vh`]);
-    const scale = useTransform(scrollProgress, [0, 0.5], [2.5, config.scale]);
+    // Start from bottom, move to center
+    const phase1Y = useTransform(
+        scrollProgress,
+        [revealStart, revealEnd],
+        [40, 0]  // Start at 40vh below center (bottom), move to center
+    );
 
-    // 2. ROTATION
-    // Start straight or slight random, end at specific angle
-    const rotate = useTransform(scrollProgress, [0, 0.5], [0, config.rotate]);
+    // Scale up as moving
+    const phase1Scale = useTransform(
+        scrollProgress,
+        [revealStart, revealEnd],
+        [0.4, 0.8]  // Grow from small to medium
+    );
+
+    // Opacity fade in
+    const phase1Opacity = useTransform(
+        scrollProgress,
+        [revealStart, 0.15],
+        [0.3, 1.0]
+    );
+
+    // ===== PHASE 2: FAN OUT & DISPERSE (0.3 - 0.55) =====
+    // Images fan out horizontally and vertically while continuing to scale
+    const phase2X = useTransform(
+        scrollProgress,
+        [0.3, 0.55],
+        [0, dispersionConfig.x]
+    );
+
+    const phase2Y = useTransform(
+        scrollProgress,
+        [0.3, 0.55],
+        [0, dispersionConfig.y]
+    );
+
+    const phase2Scale = useTransform(
+        scrollProgress,
+        [0.3, 0.55],
+        [0.8, dispersionConfig.scale]
+    );
+
+    // ===== PHASE 3: UPWARD CONTINUE & REGROUP (0.55 - 0.75) =====
+    // Move from scattered positions to horizontal row at TOP
+    const rowSpacing = 90 / (totalCards + 1);  // Distribute across 90vw
+    const rowX = (index + 1) * rowSpacing - 45;  // Center the row
+
+    const phase3X = useTransform(
+        scrollProgress,
+        [0.55, 0.75],
+        [dispersionConfig.x, rowX]
+    );
+
+    const phase3Y = useTransform(
+        scrollProgress,
+        [0.55, 0.75],
+        [dispersionConfig.y, -30]  // Move to 30vh ABOVE center
+    );
+
+    const phase3Scale = useTransform(
+        scrollProgress,
+        [0.55, 0.75],
+        [dispersionConfig.scale, 0.5]  // Shrink slightly
+    );
+
+    // ===== PHASE 4: SLIDE OUT & FADE (0.75 - 1.0) =====
+    // Continue upward and fade out
+    const phase4Y = useTransform(
+        scrollProgress,
+        [0.75, 1.0],
+        [0, -50]  // Continue moving up
+    );
+
+    const phase4Opacity = useTransform(
+        scrollProgress,
+        [0.80, 1.0],
+        [1, 0]  // Fade out
+    );
+
+    // ===== COMBINED TRANSFORMATIONS =====
+    const x = useTransform(scrollProgress, (progress) => {
+        if (progress < 0.3) return 0;  // Phase 1: centered
+        if (progress < 0.55) return phase2X.get();  // Phase 2: fan out
+        return phase3X.get();  // Phase 3 & 4: regrouped row
+    });
+
+    const y = useTransform(scrollProgress, (progress) => {
+        if (progress < 0.3) return `${phase1Y.get()}vh`;  // Phase 1: bottom to center
+        if (progress < 0.55) return `${phase2Y.get()}vh`;  // Phase 2: disperse
+        if (progress < 0.75) return `${phase3Y.get()}vh`;  // Phase 3: move to top
+        return `${phase3Y.get() + phase4Y.get()}vh`;  // Phase 4: continue up
+    });
+
+    const scale = useTransform(scrollProgress, (progress) => {
+        if (progress < 0.3) return phase1Scale.get();  // Phase 1: scale up
+        if (progress < 0.55) return phase2Scale.get();  // Phase 2: continue scaling
+        return phase3Scale.get();  // Phase 3 & 4: final size
+    });
+
+    const opacity = useTransform(scrollProgress, (progress) => {
+        if (progress < 0.3) return phase1Opacity.get();  // Phase 1: fade in
+        if (progress < 0.80) return 1;  // Phase 2 & 3: fully visible
+        return phase4Opacity.get();  // Phase 4: fade out
+    });
+
+    // Z-index: higher index images appear on top
+    const zIndex = index;
 
     return (
         <motion.div
-            style={{ x, y, rotate, scale, zIndex: config.z }}
-            className="absolute w-[30vw] md:w-[22vw] aspect-[3/4] shadow-2xl origin-center"
+            style={{
+                x,
+                y,
+                scale,
+                opacity,
+                zIndex
+            }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="absolute w-[28vw] md:w-[20vw] aspect-[3/4] shadow-2xl origin-center"
         >
-            <div className="w-full h-full rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a] group relative">
+            <div className="w-full h-full rounded-xl overflow-hidden border border-white/20 bg-[#0a0a0a] group relative">
                 <img
                     src={src}
                     alt="Travel"

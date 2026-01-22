@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
-import { ArrowUpRight, TrendingUp, TrendingDown, DollarSign } from "lucide-react";
-import { useRef, useState } from "react";
+import { TrendingUp, TrendingDown } from "lucide-react";
+import { useRef } from "react";
 import clsx from "clsx";
 
 export default function Content() {
@@ -11,42 +11,8 @@ export default function Content() {
     return (
         <div ref={containerRef} className="bg-background relative z-20 overflow-hidden">
 
-            {/* Section 1: Projects (Editorial List) */}
-            <section id="projects" className="py-32 px-4 md:px-8 max-w-[1800px] mx-auto min-h-screen">
-                <RevealText className="text-[12vw] leading-[0.9] font-serif text-white mb-24 tracking-tight border-b border-white/20 pb-8">
-                    Projects
-                </RevealText>
-
-                <div className="flex flex-col">
-                    <EditorialItem
-                        title="Agentic Workflows"
-                        category="Engineering"
-                        year="2024"
-                        image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
-                    />
-                    <EditorialItem
-                        title="Generative UI Patterns"
-                        category="Design"
-                        year="2024"
-                        image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
-                    />
-                    <EditorialItem
-                        title="Scalable RAG Systems"
-                        category="AI"
-                        year="2023"
-                        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop"
-                    />
-                    <EditorialItem
-                        title="Option Selling Bot"
-                        category="Finance"
-                        year="2023"
-                        image="https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2664&auto=format&fit=crop"
-                    />
-                </div>
-            </section>
-
-            {/* Section 2: Travel (The Grid) */}
-            <section id="travel" className="min-h-screen py-32 px-4 md:px-8 max-w-[1800px] mx-auto border-t border-white/10">
+            {/* Section 1: Travel (The Grid) */}
+            <section id="travel" className="min-h-screen py-32 px-4 md:px-8 max-w-[1800px] mx-auto">
                 <RevealText className="text-[12vw] leading-[0.9] font-serif text-white mb-24 md:mb-32 tracking-tight">
                     Travel & Life
                 </RevealText>
@@ -95,41 +61,7 @@ export default function Content() {
                 </div>
             </section>
 
-            {/* Section 3: Blogs */}
-            <section id="blogs" className="py-32 px-4 md:px-8 max-w-[1800px] mx-auto min-h-screen border-t border-white/10">
-                <RevealText className="text-[12vw] leading-[0.9] font-serif text-white mb-24 tracking-tight">
-                    Latest Thoughts
-                </RevealText>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-                    <BlogCard
-                        title="The Age of Autonomous Agents"
-                        excerpt="How we moved from prompt engineering to engineering flows that think acting independently."
-                        date="Jan 12, 2025"
-                        readTime="5 min read"
-                    />
-                    <BlogCard
-                        title="Designing for Dark Mode First"
-                        excerpt="Why deep blacks and high contrast typography create more immersive reading experiences."
-                        date="Dec 28, 2024"
-                        readTime="8 min read"
-                    />
-                    <BlogCard
-                        title="Next.js 15: What's New?"
-                        excerpt="A deep dive into partial prerendering and the new compiler infrastructure."
-                        date="Dec 15, 2024"
-                        readTime="6 min read"
-                    />
-                    <BlogCard
-                        title="Option Greeks Visualized"
-                        excerpt="Using Three.js to plot volatility surfaces in real-time."
-                        date="Nov 30, 2024"
-                        readTime="12 min read"
-                    />
-                </div>
-            </section>
-
-            {/* Section 4: Market Today (Financial Data Vibe) */}
+            {/* Section 2: Market Today (Financial Data Vibe) */}
             <section id="market" className="py-32 px-4 md:px-8 max-w-[1800px] mx-auto min-h-[80vh] bg-[#0A0A0A] border-t border-white/10">
                 <RevealText className="text-[12vw] leading-[0.9] font-serif text-white mb-12 tracking-tight">
                     Market Pulse
@@ -228,32 +160,6 @@ export default function Content() {
     );
 }
 
-// Helper: Blog Card
-function BlogCard({ title, excerpt, date, readTime }: { title: string, excerpt: string, date: string, readTime: string }) {
-    return (
-        <div className="group cursor-pointer">
-            <div className="mb-6 overflow-hidden">
-                <div className="h-[2px] w-full bg-white/10 group-hover:bg-purple-500 transition-colors duration-500" />
-            </div>
-            <div className="flex items-center gap-4 text-sm font-mono text-white/40 mb-4">
-                <span>{date}</span>
-                <span>•</span>
-                <span>{readTime}</span>
-            </div>
-            <h3 className="text-3xl md:text-5xl font-serif text-white mb-4 leading-tight group-hover:text-purple-200 transition-colors">
-                {title}
-            </h3>
-            <p className="text-white/60 text-lg md:text-xl font-sans max-w-xl">
-                {excerpt}
-            </p>
-            <div className="mt-6 flex items-center gap-2 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
-                <span className="text-sm font-bold uppercase tracking-widest">Read Article</span>
-                <ArrowUpRight className="w-4 h-4" />
-            </div>
-        </div>
-    );
-}
-
 // Helper: Parallax Image Component
 function ParallaxImage({ src, alt, className }: { src: string, alt: string, className?: string }) {
     const ref = useRef(null);
@@ -275,48 +181,6 @@ function ParallaxImage({ src, alt, className }: { src: string, alt: string, clas
                 className={clsx("w-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700", className)}
             />
         </div>
-    );
-}
-
-// Helper: Editorial List Item with Reveal Interaction
-function EditorialItem({ title, category, year, image }: { title: string, category: string, year: string, image: string }) {
-    const [isHovered, setIsHovered] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    // Reveal animation for the text
-    const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-
-    return (
-        <motion.div
-            ref={ref}
-            initial="initial"
-            whileHover="hover"
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
-            className="group relative border-b border-white/20 py-16 cursor-pointer"
-        >
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between z-10 relative px-4">
-                <h3 className="text-4xl md:text-8xl font-serif text-white group-hover:text-muted-foreground transition-colors duration-500">
-                    {title}
-                </h3>
-                <div className="flex items-center gap-12 mt-4 md:mt-0 font-sans text-xl text-white/60">
-                    <span>{category}</span>
-                    <span>{year}</span>
-                </div>
-            </div>
-
-            {/* Hover Image Float */}
-            <motion.div
-                variants={{
-                    initial: { opacity: 0, scale: 0.8, rotate: -5 },
-                    hover: { opacity: 1, scale: 1, rotate: 0 }
-                }}
-                transition={{ duration: 0.4, ease: "circOut" }}
-                className="pointer-events-none absolute right-[10%] top-1/2 -translate-y-1/2 w-[400px] h-[300px] z-0 hidden md:block overflow-hidden rounded-md"
-            >
-                <img src={image} alt={title} className="w-full h-full object-cover" />
-            </motion.div>
-        </motion.div>
     );
 }
 

@@ -1,15 +1,17 @@
 import Hero from "@/components/Hero";
-import Content from "@/components/Content";
 import Navbar from "@/components/Navbar";
-import TransitionSequence from "@/components/TransitionSequence";
+import BentoGrid from "@/components/BentoGrid";
+import AboutMe from "@/components/AboutMe";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (
-        <main className="bg-background min-h-screen">
+        <main className="bg-black min-h-screen">
             <Navbar />
             <Hero />
-            <TransitionSequence />
-            <Content />
+            <BentoGrid />
+            <AboutMe />
+            <Footer />
         </main>
     );
 }

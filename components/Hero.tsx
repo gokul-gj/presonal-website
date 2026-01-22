@@ -89,7 +89,7 @@ export default function Hero() {
     }, [images, currentIndex]);
 
     return (
-        <div ref={containerRef} className="relative h-[500vh] w-full bg-background">
+        <div ref={containerRef} className="relative h-[200vh] w-full bg-background">
             <div className="sticky top-0 h-screen w-full overflow-hidden">
                 <canvas
                     ref={canvasRef}
@@ -150,6 +150,7 @@ function SceneText({
     return (
         <motion.div
             style={{ opacity, y }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className={clsx("absolute inset-0 flex", className)}
         >
             {children}
