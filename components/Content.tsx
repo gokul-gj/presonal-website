@@ -146,9 +146,8 @@ export default function Content() {
 
                     <div className="flex flex-col md:flex-row justify-between mt-12 md:mt-24 text-lg md:text-xl font-sans text-white/60 uppercase tracking-widest">
                         <div className="flex gap-8 mb-8 md:mb-0">
-                            <a href="#" className="hover:text-white transition-colors">Twitter (X)</a>
-                            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                            <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                            <a href="https://www.linkedin.com/in/gokul-gj/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+                            <a href="https://www.instagram.com/gokul_gj/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
                         </div>
                         <div>
                             © {new Date().getFullYear()} Gokul GJ

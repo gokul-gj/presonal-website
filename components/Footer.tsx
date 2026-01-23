@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 
 const SOCIAL_LINKS = [
-    { name: "TWITTER (X)", href: "https://twitter.com/gokul_gj", label: "Follow on X" },
-    { name: "LINKEDIN", href: "https://linkedin.com/in/gokul-gj", label: "Connect on LinkedIn" },
-    { name: "INSTAGRAM", href: "https://instagram.com/gokul.gj", label: "Follow on Instagram" },
+    { name: "LINKEDIN", href: "https://www.linkedin.com/in/gokul-gj/", label: "Connect on LinkedIn" },
+    { name: "INSTAGRAM", href: "https://www.instagram.com/gokul_gj/", label: "Follow on Instagram" },
 ];
 
 export default function Footer() {
@@ -66,10 +65,10 @@ export default function Footer() {
                             <div>
                                 <p className="text-white/50 text-sm uppercase tracking-wider mb-2">Email</p>
                                 <a
-                                    href="mailto:hello@gokul.dev"
+                                    href="mailto:gj.gokul02@gmail.com"
                                     className="text-2xl md:text-3xl font-semibold text-white hover:text-purple-400 transition-colors"
                                 >
-                                    hello@gokul.dev
+                                    gj.gokul02@gmail.com
                                 </a>
                             </div>
 
