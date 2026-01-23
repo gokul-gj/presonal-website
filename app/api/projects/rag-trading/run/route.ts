@@ -1,169 +1,191 @@
 import { NextResponse } from 'next/server';
-import YahooFinance from 'yahoo-finance2';
-
-const yahooFinance = new YahooFinance();
+import { spawn } from 'child_process';
+import path from 'path';
 
 export async function POST(req: Request) {
     try {
         const body = await req.json().catch(() => ({}));
-        const strategyOverride = body.strategyOverride || "Auto"; // "Auto" | "Short Strangle" | "Short Straddle" | "Iron Fly"
+        const strategyOverride = body.strategyOverride || null;
 
-        // 1. Market Scanner Step (Live Data)
-        const [niftyQuote, vixQuote] = await Promise.all([
-            yahooFinance.quote('^NSEI'),
-            yahooFinance.quote('^INDIAVIX')
-        ]);
+        console.log('🚀 [RAG API] Starting Python backend execution...');
 
-        const spotPrice = niftyQuote.regularMarketPrice || 22000;
-        const vix = vixQuote.regularMarketPrice || 13;
-        const isHighVix = vix > 15;
-        const trend = (niftyQuote.regularMarketChangePercent || 0) > 0 ? "BULLISH" : "BEARISH";
+        // Path to your Python project (inside website folder)
+        const pythonProjectPath = path.join(process.cwd(), 'Project', 'RAG_Production');
 
-        // 2. Market Researcher Step (Simulated)
-        const researchSummary = trend === "BULLISH"
-            ? "Global markets showing resilience. FII inflows positive in recent sessions. Tech sector leading the rally."
-            : "Global cues weak due to inflation concerns. Profit booking seen in major banking stocks.";
+        // Use the Python executable from the virtual environment
+        const pythonCmd = path.join(pythonProjectPath, '.venv', 'bin', 'python');
 
-        // 3. Strategist Step (Logic)
-        let strategy = "Short Strangle"; // Default
-        let reasoning = "VIX is moderate, suggesting range-bound movement.";
-        let selectedLegs: any[] = [];
+        console.log(`📂 Project path: ${pythonProjectPath}`);
+        console.log(`🐍 Python: ${pythonCmd}`);
 
-        // Logic for Auto vs Manual
-        if (strategyOverride !== "Auto") {
-            strategy = strategyOverride;
-            reasoning = `Manual override selected: ${strategyOverride}. Adjusting strikes based on current spot.`;
-        } else {
-            // Auto Logic
-            if (isHighVix) {
-                strategy = "Iron Fly";
-                reasoning = "High VIX indicates expensive premiums. Iron Fly limits risk while capturing mean reversion.";
-            } else if (Math.abs(niftyQuote.regularMarketChangePercent || 0) > 1.0) {
-                strategy = trend === "BULLISH" ? "Bull Call Spread" : "Bear Put Spread";
-                reasoning = `Strong ${trend.toLowerCase()} momentum detected. Directional spread recommended.`;
+        // Call the Python main_graph.py script
+        const pythonProcess = spawn(pythonCmd, [
+            'main_graph.py'
+        ], {
+            cwd: pythonProjectPath,
+            env: {
+                ...process.env,
+                USER_SELECTED_STRATEGY: strategyOverride || ''
             }
-        }
+        });
 
-        // 4. Execution Plan (Strikes)
-        const roundToStrike = (price: number) => Math.round(price / 50) * 50;
-        const atm = roundToStrike(spotPrice);
+        let pythonOutput = '';
+        let pythonError = '';
 
-        // Strike Logic
-        let ceStrike = atm;
-        let peStrike = atm;
-        let hedgeCe = 0;
-        let hedgePe = 0;
+        // Collect stdout
+        pythonProcess.stdout.on('data', (data) => {
+            const output = data.toString();
+            console.log('[Python]:', output);
+            pythonOutput += output;
+        });
 
-        if (strategy === "Short Straddle" || strategy === "Iron Fly") {
-            ceStrike = atm;
-            peStrike = atm;
-        } else {
-            // Strangle or Spreads - wider
-            const width = isHighVix ? 500 : 300;
-            ceStrike = atm + width;
-            peStrike = atm - width;
-        }
+        // Collect stderr
+        pythonProcess.stderr.on('data', (data) => {
+            const error = data.toString();
+            console.error('[Python Error]:', error);
+            pythonError += error;
+        });
 
-        selectedLegs = [
-            { type: "SELL", instrument: "CE", strike: ceStrike, qty: 50, premium: 100 }, // Simulated premium
-            { type: "SELL", instrument: "PE", strike: peStrike, qty: 50, premium: 100 }
-        ];
+        // Wait for process to complete
+        const result: any = await new Promise((resolve, reject) => {
+            pythonProcess.on('close', (code) => {
+                console.log(`Python process exited with code ${code}`);
 
-        // Add hedges for Iron Fly or Spreads
-        if (strategy === "Iron Fly" || strategy.includes("Spread")) {
-            hedgeCe = ceStrike + 200;
-            hedgePe = peStrike - 200;
-            selectedLegs.push(
-                { type: "BUY", instrument: "CE", strike: hedgeCe, qty: 50, premium: 20 },
-                { type: "BUY", instrument: "PE", strike: hedgePe, qty: 50, premium: 20 }
-            );
-        }
+                if (code === 0) {
+                    try {
+                        // Extract JSON from output (look for __JSON_START__)
+                        const startMarker = '__JSON_START__';
+                        const endMarker = '__JSON_END__';
 
-        const executionPlan = {
-            strategy: strategy,
-            legs: selectedLegs
-        };
+                        const startIndex = pythonOutput.indexOf(startMarker);
+                        const endIndex = pythonOutput.indexOf(endMarker);
 
-        // 4b. Risk Analysis (Pass/Fail Logic)
-        const marginReq = strategy.includes("Iron") || strategy.includes("Spread") ? 60000 : 125000; // Hedged vs Naked
-        const riskStatus = "PASS";
-        const riskReasoning = `Margin Utilization: ${(marginReq / 500000 * 100).toFixed(0)}%. Delta Neutrality: Maintained. Gamma Risk: Low.`;
-
-        const riskAnalysis = {
-            status: riskStatus,
-            details: riskReasoning,
-            margin: marginReq
-        };
-
-        // 4c. Payoff Data Generation
-        // Generate 21 points centered around ATM
-        const payoffData = [];
-        const range = 1000;
-        for (let price = atm - range; price <= atm + range; price += 100) {
-            let pnl = 0;
-            selectedLegs.forEach(leg => {
-                const isCall = leg.instrument === "CE";
-                const isBuy = leg.type === "BUY";
-                const strike = leg.strike;
-                const premium = leg.premium;
-
-                let intrinsic = 0;
-                if (isCall) intrinsic = Math.max(0, price - strike);
-                else intrinsic = Math.max(0, strike - price);
-
-                if (isBuy) {
-                    pnl += (intrinsic - premium) * leg.qty;
+                        if (startIndex !== -1 && endIndex !== -1) {
+                            const jsonText = pythonOutput.substring(startIndex + startMarker.length, endIndex);
+                            const data = JSON.parse(jsonText);
+                            resolve(data);
+                        } else {
+                            console.log('Full Python output:', pythonOutput);
+                            reject(new Error('No JSON delimiters found in Python output'));
+                        }
+                    } catch (e: any) {
+                        console.error('JSON parse error:', e.message);
+                        console.log('Output extraction failed. Raw:', pythonOutput.substring(0, 500));
+                        reject(e);
+                    }
                 } else {
-                    pnl += (premium - intrinsic) * leg.qty;
+                    reject(new Error(`Python exited with code ${code}. Error: ${pythonError}`));
                 }
             });
-            payoffData.push({ x: price, y: pnl });
-        }
 
+            pythonProcess.on('error', (err: any) => {
+                console.error('Failed to start Python:', err);
+                reject(err);
+            });
 
-        // 5. Build Response Stream (Steps for UI visualization)
+            // Set timeout (60 seconds)
+            setTimeout(() => {
+                pythonProcess.kill();
+                reject(new Error('Python execution timeout after 60s'));
+            }, 60000);
+        });
+
+        // Transform Python output to UI format
+        const marketData = result.market_data || {};
+        const strategyDecision = result.strategy_decision || {};
+        const finalOrder = result.final_order || {};
+        const riskStatus = result.risk_status || 'unknown';
+        const riskAnalysis = result.risk_analysis || '';
+
+        // Build steps for UI
         const steps = [
             {
                 id: 1,
                 agent: "Market Scanner",
                 status: "completed",
-                message: `Fetched NIFTY Spot: ${spotPrice.toFixed(2)}, India VIX: ${vix.toFixed(2)}`
+                message: `Fetched NIFTY Spot: ${marketData.spot_price?.toFixed(2) || 'N/A'}, India VIX: ${marketData.iv?.toFixed(2) || 'N/A'}%`
             },
             {
                 id: 2,
-                agent: "Market Researcher",
+                agent: "Market Researcher (Llama 3)",
                 status: "completed",
-                message: `Analyzed News: ${researchSummary}`
+                message: `${strategyDecision.market_sentiment || 'N/A'}`
             },
             {
                 id: 3,
-                agent: "Strategist",
+                agent: "Strategist (GPT-4 + RAG)",
                 status: "completed",
-                message: `Selected Strategy: ${strategy}. Reasoning: ${reasoning}`
+                message: `Strategy: ${strategyDecision.strategy || 'N/A'}. Sigma: ${strategyDecision.recommended_sigma || 1.0}. ${strategyDecision.rationale || ''}`
             },
             {
                 id: 4,
-                agent: "Risk Manager",
+                agent: "Risk Manager (Llama 3)",
                 status: "completed",
-                message: `${riskReasoning} Risk Check: ${riskStatus}.`
+                message: `Risk: ${riskStatus}. ${riskAnalysis}`
             }
         ];
 
+        // Generate payoff data
+        const payoffData = generatePayoffData(finalOrder, marketData.spot_price || 22000);
+
         return NextResponse.json({
             success: true,
-            marketData: { spotPrice, vix, trend },
+            marketData: {
+                spotPrice: marketData.spot_price,
+                vix: marketData.iv,
+                trend: marketData.spot_price > 22000 ? 'BULLISH' : 'BEARISH'
+            },
             steps,
-            finalDecision: executionPlan,
-            riskAnalysis,
+            finalDecision: {
+                strategy: finalOrder.strategy,
+                legs: finalOrder.legs || []
+            },
+            riskAnalysis: {
+                status: riskStatus,
+                details: riskAnalysis,
+                margin: 125000
+            },
             payoffData,
+            llmAnalysis: strategyDecision.llm_analysis,
             timestamp: new Date().toISOString()
         });
 
-    } catch (error) {
-        console.error("RAG Agent Error:", error);
+    } catch (error: any) {
+        console.error("❌ [RAG API] Error:", error);
         return NextResponse.json({
             success: false,
-            error: "Failed to run agent workflow"
+            error: error.message || "Failed to run agent workflow"
         }, { status: 500 });
     }
+}
+
+// Helper: Generate payoff data
+function generatePayoffData(order: any, spotPrice: number) {
+    const legs = order?.legs || [];
+    const atm = Math.round(spotPrice / 50) * 50;
+    const payoffData = [];
+    const range = 1000;
+
+    for (let price = atm - range; price <= atm + range; price += 100) {
+        let pnl = 0;
+
+        legs.forEach((leg: any) => {
+            const isCall = leg.type === "CE";
+            const strike = leg.strike;
+            const qty = leg.quantity || 50;
+            const premium = 100;
+
+            let intrinsic = 0;
+            if (isCall) intrinsic = Math.max(0, price - strike);
+            else intrinsic = Math.max(0, strike - price);
+
+            if (leg.action === "SELL") {
+                pnl += (premium - intrinsic) * qty;
+            }
+        });
+
+        payoffData.push({ x: price, y: pnl });
+    }
+
+    return payoffData;
 }
