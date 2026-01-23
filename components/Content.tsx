@@ -68,61 +68,10 @@ export default function Content() {
                 </RevealText>
                 <div className="mb-24 flex items-center gap-4 text-lime-400 font-mono text-sm uppercase tracking-widest">
                     <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse"></span>
-                    Live Data Simulation
+                    Live Data
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Ticker Card 1 */}
-                    <div className="border border-white/10 p-8 bg-black/40 hover:bg-white/5 transition-colors group">
-                        <div className="flex justify-between items-start mb-8">
-                            <h3 className="text-white/60 font-mono text-xl">NIFTY 50</h3>
-                            <TrendingUp className="text-lime-400 w-6 h-6" />
-                        </div>
-                        <div className="text-5xl font-sans text-white font-bold mb-2 tabular-nums">
-                            24,850.35
-                        </div>
-                        <div className="text-lime-400 font-mono text-sm">
-                            +125.40 (0.51%)
-                        </div>
-                        <div className="mt-8 h-1 w-full bg-white/10 overflow-hidden">
-                            <div className="h-full bg-lime-400 w-[70%]" />
-                        </div>
-                    </div>
-
-                    {/* Ticker Card 2 */}
-                    <div className="border border-white/10 p-8 bg-black/40 hover:bg-white/5 transition-colors group">
-                        <div className="flex justify-between items-start mb-8">
-                            <h3 className="text-white/60 font-mono text-xl">INDIA VIX</h3>
-                            <TrendingDown className="text-red-400 w-6 h-6" />
-                        </div>
-                        <div className="text-5xl font-sans text-white font-bold mb-2 tabular-nums">
-                            12.45
-                        </div>
-                        <div className="text-red-400 font-mono text-sm">
-                            -0.85 (-6.4%)
-                        </div>
-                        <div className="mt-8 h-1 w-full bg-white/10 overflow-hidden">
-                            <div className="h-full bg-red-400 w-[30%]" />
-                        </div>
-                    </div>
-
-                    {/* Ticker Card 3 */}
-                    <div className="border border-white/10 p-8 bg-black/40 hover:bg-white/5 transition-colors group">
-                        <div className="flex justify-between items-start mb-8">
-                            <h3 className="text-white/60 font-mono text-xl">BANK NIFTY</h3>
-                            <TrendingUp className="text-lime-400 w-6 h-6" />
-                        </div>
-                        <div className="text-5xl font-sans text-white font-bold mb-2 tabular-nums">
-                            52,100.00
-                        </div>
-                        <div className="text-lime-400 font-mono text-sm">
-                            +340.00 (0.68%)
-                        </div>
-                        <div className="mt-8 h-1 w-full bg-white/10 overflow-hidden">
-                            <div className="h-full bg-lime-400 w-[60%]" />
-                        </div>
-                    </div>
-                </div>
+                <MarketTicker />
 
                 <div className="mt-12 p-8 border border-white/10 bg-white/5 font-mono text-sm text-white/70">
                     <span className="text-purple-400">Analysis:</span> Market sentiment remains bullish as agentic AI adoption drives tech sector growth. Volatility (VIX) cooling off suggests stability in the upcoming expiry.
@@ -195,5 +144,76 @@ function RevealText({ children, className }: { children: string, className?: str
         >
             {children}
         </motion.div>
+    );
+}
+
+import { useMarketData } from "@/lib/marketApi";
+import { useEffect, useState } from "react";
+
+function MarketTicker() {
+    const { data, loading } = useMarketData(60000); // Refresh every minute
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
+    if (loading && !data) {
+        return (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((i) => (
+                    <div key={i} className="border border-white/10 p-8 h-[240px] bg-white/5 animate-pulse rounded-sm" />
+                ))}
+            </div>
+        );
+    }
+
+    if (!data) return <div className="text-white/50">Market data unavailable</div>;
+
+    // Filter for specific indices we want to show
+    const relevantIndices = [
+        data.find(d => d.symbol === 'NIFTY50'),
+        data.find(d => d.symbol === 'INDIAVIX'),
+        data.find(d => d.symbol === 'BANKNIFTY')
+    ].filter(Boolean);
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {relevantIndices.map((index: any) => {
+                const isPositive = index.change >= 0;
+                // VIX usually is inverse logic for market but let's stick to Green = Up, Red = Down for price action itself
+                // Or for VIX: Red = Up (Bad), Green = Down (Good) - but standard financial UI uses red/green based on math sign usually.
+                // Let's stick to math sign for formatting:
+                const colorClass = isPositive ? "text-lime-400" : "text-red-400";
+                const bgClass = isPositive ? "bg-lime-400" : "bg-red-400";
+
+                return (
+                    <div key={index.symbol} className="border border-white/10 p-8 bg-black/40 hover:bg-white/5 transition-colors group">
+                        <div className="flex justify-between items-start mb-8">
+                            <h3 className="text-white/60 font-mono text-xl">{index.name}</h3>
+                            {isPositive ? (
+                                <TrendingUp className={`${colorClass} w-6 h-6`} />
+                            ) : (
+                                <TrendingDown className={`${colorClass} w-6 h-6`} />
+                            )}
+                        </div>
+                        <div className="text-5xl font-sans text-white font-bold mb-2 tabular-nums">
+                            {index.value.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </div>
+                        <div className={`${colorClass} font-mono text-sm`}>
+                            {isPositive ? "+" : ""}{index.change.toFixed(2)} ({index.changePercent.toFixed(2)}%)
+                        </div>
+                        <div className="mt-8 h-1 w-full bg-white/10 overflow-hidden">
+                            <div className={`h-full ${bgClass}`} style={{
+                                width: `${Math.min(Math.abs(index.changePercent) * 10
+                                    + 20, 100)}%`
+                            }} />
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
     );
 }

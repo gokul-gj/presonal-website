@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import YahooFinance from 'yahoo-finance2';
+const yahooFinance = new YahooFinance();
 import type { IndexData } from '@/lib/marketData';
 import { mockIndicesData } from '@/lib/marketData';
 
@@ -7,114 +9,82 @@ const SYMBOLS = {
     NIFTY50: '^NSEI',
     BANKNIFTY: '^NSEBANK',
     SENSEX: '^BSESN',
-    // Note: Yahoo Finance doesn't have direct symbols for Smallcap, Midcap, VIX
-    // We'll use mock data for these or need alternative sources
+    INDIAVIX: '^INDIAVIX',
+    NIFTYMIDCAP100: '^NSEMDCP100', // Added Midcap
+    NIFTYSMALLCAP100: '^NSESCAP', // Added Smallcap (Check symbol if needed, usually ^CNXSC on some platforms or NIFTY_SMALLCAP_100.NS)
+    // Yahoo finance often uses .NS suffix for stocks, but indices usually start with ^
 };
 
-async function fetchYahooFinanceData(symbol: string): Promise<any> {
+// Map Yahoo symbols to our internal IDs/Names
+const SYMBOL_MAP: Record<string, { id: string; name: string }> = {
+    [SYMBOLS.NIFTY50]: { id: 'NIFTY50', name: 'NIFTY 50' },
+    [SYMBOLS.BANKNIFTY]: { id: 'BANKNIFTY', name: 'NIFTY BANK' }, // Updated name to match typical display
+    [SYMBOLS.SENSEX]: { id: 'SENSEX', name: 'BSE SENSEX' },
+    [SYMBOLS.INDIAVIX]: { id: 'INDIAVIX', name: 'INDIA VIX' },
+    [SYMBOLS.NIFTYMIDCAP100]: { id: 'NIFTYMIDCAP100', name: 'NIFTY MIDCAP 100' },
+    // Smallcap symbol on Yahoo might be tricky, limiting to reliable ones for now or adding if verified.
+};
+
+async function fetchLiveIndices() {
+    const symbolsToFetch = [
+        SYMBOLS.NIFTY50,
+        SYMBOLS.BANKNIFTY,
+        SYMBOLS.SENSEX,
+        SYMBOLS.INDIAVIX
+    ];
+
     try {
-        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`;
-        const response = await fetch(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            },
-            next: { revalidate: 3600 } // Cache for 1 hour
+        const results = await Promise.all(
+            symbolsToFetch.map(async (symbol) => {
+                try {
+                    const quote = await yahooFinance.quote(symbol);
+                    return { symbol, quote };
+                } catch (e) {
+                    console.error(`Failed to fetch ${symbol}:`, e);
+                    return { symbol, error: e };
+                }
+            })
+        );
+
+        const indices: IndexData[] = [];
+
+        results.forEach(({ symbol, quote, error }) => {
+            if (quote && !error) {
+                const info = SYMBOL_MAP[symbol];
+                if (!info) return;
+
+                // Type assertion/casting to handle potential strict type issues from the library or missing types
+                const q = quote as any;
+
+                indices.push({
+                    symbol: info.id, // Using our internal ID
+                    name: info.name,
+                    value: q.regularMarketPrice || 0,
+                    change: q.regularMarketChange || 0,
+                    changePercent: q.regularMarketChangePercent || 0,
+                    high: q.regularMarketDayHigh || 0,
+                    low: q.regularMarketDayLow || 0,
+                    open: q.regularMarketOpen || 0,
+                    prevClose: q.regularMarketPreviousClose || 0,
+                    lastUpdated: new Date().toISOString()
+                });
+            }
         });
 
-        if (!response.ok) {
-            throw new Error(`Yahoo Finance API error: ${response.status}`);
-        }
+        return indices;
 
-        const data = await response.json();
-        return data;
     } catch (error) {
-        console.error(`Error fetching ${symbol}:`, error);
-        return null;
-    }
-}
-
-function transformYahooData(symbol: string, data: any): IndexData | null {
-    try {
-        const quote = data?.chart?.result?.[0];
-        if (!quote) return null;
-
-        const meta = quote.meta;
-        const indicators = quote.indicators?.quote?.[0];
-
-        const currentPrice = meta.regularMarketPrice || 0;
-        const previousClose = meta.previousClose || meta.chartPreviousClose || 0;
-        const change = currentPrice - previousClose;
-        const changePercent = (change / previousClose) * 100;
-
-        // Get OHLC from indicators
-        const open = indicators?.open?.[0] || meta.regularMarketPrice || 0;
-        const high = meta.regularMarketDayHigh || 0;
-        const low = meta.regularMarketDayLow || 0;
-
-        // Map symbol to our format
-        const symbolMap: { [key: string]: { symbol: string; name: string } } = {
-            [SYMBOLS.NIFTY50]: { symbol: 'NIFTY50', name: 'NIFTY 50' },
-            [SYMBOLS.BANKNIFTY]: { symbol: 'BANKNIFTY', name: 'NIFTY BANK' },
-            [SYMBOLS.SENSEX]: { symbol: 'SENSEX', name: 'BSE SENSEX' }
-        };
-
-        const mappedSymbol = symbolMap[symbol] || { symbol: symbol, name: symbol };
-
-        return {
-            symbol: mappedSymbol.symbol,
-            name: mappedSymbol.name,
-            value: currentPrice,
-            change: change,
-            changePercent: changePercent,
-            high: high,
-            low: low,
-            open: open,
-            prevClose: previousClose,
-            lastUpdated: new Date().toISOString()
-        };
-    } catch (error) {
-        console.error('Error transforming Yahoo data:', error);
-        return null;
+        console.error('Error fetching batch indices:', error);
+        return [];
     }
 }
 
 export async function GET() {
     try {
-        // Fetch data for main indices
-        const [niftyData, bankNiftyData, sensexData] = await Promise.all([
-            fetchYahooFinanceData(SYMBOLS.NIFTY50),
-            fetchYahooFinanceData(SYMBOLS.BANKNIFTY),
-            fetchYahooFinanceData(SYMBOLS.SENSEX)
-        ]);
+        const liveIndices = await fetchLiveIndices();
 
-        // Transform the data
-        const indices: IndexData[] = [];
-
-        if (niftyData) {
-            const transformed = transformYahooData(SYMBOLS.NIFTY50, niftyData);
-            if (transformed) indices.push(transformed);
-        }
-
-        if (bankNiftyData) {
-            const transformed = transformYahooData(SYMBOLS.BANKNIFTY, bankNiftyData);
-            if (transformed) indices.push(transformed);
-        }
-
-        if (sensexData) {
-            const transformed = transformYahooData(SYMBOLS.SENSEX, sensexData);
-            if (transformed) indices.push(transformed);
-        }
-
-        // Add mock data for indices not available in Yahoo Finance
-        // (Smallcap, Midcap, VIX)
-        const mockOnlyIndices = mockIndicesData.filter(idx =>
-            ['NIFTYSMALLCAP100', 'NIFTYMIDCAP100', 'INDIAVIX'].includes(idx.symbol)
-        );
-        indices.push(...mockOnlyIndices);
-
-        // If we got no real data, fallback to all mock data
-        if (indices.length === 0) {
-            console.warn('No real data fetched, using mock data');
+        if (liveIndices.length === 0) {
+            console.warn('No live data fetched, falling back to mock.');
             return NextResponse.json({
                 success: true,
                 data: mockIndicesData,
@@ -123,26 +93,27 @@ export async function GET() {
             });
         }
 
+        // Merge with mock data if needed for indices we couldn't fetch but exist in mock (e.g. specialized ones)
+        // For now, let's just return what we have.
+
         return NextResponse.json({
             success: true,
-            data: indices,
-            source: indices.length > 3 ? 'mixed' : 'live',
+            data: liveIndices,
+            source: 'live',
             timestamp: new Date().toISOString()
         });
 
     } catch (error) {
         console.error('Error in indices API:', error);
-
-        // Return mock data on error
         return NextResponse.json({
             success: true,
             data: mockIndicesData,
             source: 'mock',
-            error: 'Failed to fetch live data, using fallback',
+            error: 'Failed to fetch live data',
             timestamp: new Date().toISOString()
         });
     }
 }
 
-// Enable caching
-export const revalidate = 3600; // Revalidate every hour
+// Revalidate frequently for market data
+export const revalidate = 60; // 60 seconds

@@ -1,50 +1,86 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, Brain, TrendingUp, Sparkles, Zap } from "lucide-react";
+import { Code2, Database, Brain, TrendingUp, Sparkles, Zap, BarChart3, Cloud, PieChart } from "lucide-react";
 import BentoCard from "./BentoCard";
 
 const ITEMS = [
     {
-        id: "frontend",
-        title: "Beautiful Interfaces",
-        description: "Crafting pixel-perfect, responsive web experiences with modern frameworks",
-        icon: Code2,
-        tech: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-        gradient: "linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%)",
+        id: "ai-ml",
+        title: "AI & Machine Learning",
+        description: "Building intelligent systems with deep learning, NLP, and computer vision",
+        icon: Brain,
+        tech: ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face"],
+        gradient: "linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%)",
         gridClass: "col-span-full md:col-span-2 md:row-span-2"
     },
     {
-        id: "backend",
-        title: "Scalable Systems",
-        description: "Building robust server architectures",
+        id: "data-science",
+        title: "Data Science & Analytics",
+        description: "Transform raw data into actionable insights",
+        icon: BarChart3,
+        tech: ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+        gradient: "linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)",
+        gridClass: "col-span-full md:col-span-2 md:row-span-1"
+    },
+    {
+        id: "big-data",
+        title: "Big Data Engineering",
+        description: "Processing massive datasets at scale",
         icon: Database,
-        tech: ["Node.js", "Python", "PostgreSQL", "AWS"],
+        tech: ["Spark", "Hadoop", "Kafka", "Airflow"],
         gradient: "linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(20, 184, 166, 0.2) 100%)",
         gridClass: "col-span-full md:col-span-1 md:row-span-1"
     },
     {
-        id: "ai",
-        title: "Intelligent Solutions",
-        description: "Leveraging ML and LLMs to create autonomous agents",
-        icon: Brain,
-        tech: ["OpenAI", "LangChain", "RAG", "Vector DBs"],
-        gradient: "linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%)",
+        id: "visualization",
+        title: "Data Visualization",
+        description: "Bringing data to life with interactive dashboards",
+        icon: PieChart,
+        tech: ["D3.js", "Plotly", "Tableau", "Custom Viz"],
+        gradient: "linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(251, 191, 36, 0.2) 100%)",
         gridClass: "col-span-full md:col-span-1 md:row-span-1"
     },
     {
         id: "trading",
-        title: "Algorithmic Trading",
-        description: "Quantitative strategies and automated trading systems",
+        title: "Options Trading & Quant",
+        description: "Quantitative analysis and algorithmic trading strategies",
         icon: TrendingUp,
-        tech: ["Python", "Options Greeks", "Backtesting", "Risk Mgmt"],
-        gradient: "linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)",
+        tech: ["Python", "Greeks", "Backtesting", "Risk Mgmt"],
+        gradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%)",
+        gridClass: "col-span-full md:col-span-2 md:row-span-1"
+    },
+    {
+        id: "frontend",
+        title: "Beautiful Interfaces",
+        description: "Crafting pixel-perfect, responsive web experiences",
+        icon: Code2,
+        tech: ["React", "Next.js", "TypeScript", "Tailwind"],
+        gradient: "linear-gradient(135deg, rgba(147, 51, 234, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)",
+        gridClass: "col-span-full md:col-span-2 md:row-span-1"
+    },
+    {
+        id: "llm",
+        title: "LLM Applications",
+        description: "Leveraging large language models for intelligent apps",
+        icon: Sparkles,
+        tech: ["OpenAI", "LangChain", "RAG", "Vector DBs"],
+        gradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%)",
+        gridClass: "col-span-full md:col-span-1 md:row-span-1"
+    },
+    {
+        id: "cloud",
+        title: "Cloud & DevOps",
+        description: "Scalable infrastructure and deployment",
+        icon: Cloud,
+        tech: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+        gradient: "linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(79, 70, 229, 0.2) 100%)",
         gridClass: "col-span-full md:col-span-1 md:row-span-1"
     },
     {
         id: "performance",
         title: "Performance Obsessed",
-        description: "Optimizing every millisecond for blazing-fast experiences",
+        description: "Optimizing for blazing-fast user experiences",
         icon: Zap,
         tech: ["Web Vitals", "CDN", "Caching", "SSR"],
         gradient: "linear-gradient(135deg, rgba(234, 179, 8, 0.2) 0%, rgba(132, 204, 22, 0.2) 100%)",

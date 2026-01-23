@@ -15,10 +15,13 @@ export default function AboutMe() {
     };
 
     const skills = [
-        "Full-Stack Development",
-        "UI/UX Design",
+        "AI & Machine Learning",
+        "Data Science & Analytics",
+        "Big Data Engineering",
+        "Algorithmic Trading",
         "React & Next.js",
-        "API Development",
+        "Beautiful UI Design",
+        "LLM Applications",
         "Cloud Architecture"
     ];
 
@@ -49,11 +52,11 @@ export default function AboutMe() {
                         </div>
 
                         <p className="text-gray-300 text-lg leading-relaxed">
-                            I'm a passionate developer and designer who loves crafting beautiful, functional digital experiences. With a keen eye for detail and a drive for innovation, I transform ideas into reality through clean code and elegant design.
+                            I'm an AI/ML Engineer and Data Scientist passionate about transforming data into actionable insights and building intelligent systems. From developing machine learning models to designing algorithmic trading strategies, I combine technical depth with creative problem-solving to deliver impactful solutions.
                         </p>
 
                         <p className="text-gray-400 leading-relaxed">
-                            My journey in tech has been fueled by curiosity and a commitment to continuous learning. I thrive on challenges that push me to explore new technologies and methodologies, always aiming to deliver solutions that make a real impact.
+                            My expertise spans the entire data pipeline—from big data engineering and analytics to deploying production-ready ML models and beautiful user interfaces. I thrive on challenges that push the boundaries of what's possible with data and AI.
                         </p>
 
                         {/* Skills Tags */}
@@ -130,10 +133,10 @@ export default function AboutMe() {
                                         </div>
                                         <div className="text-center">
                                             <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                                                100+
+                                                50+
                                             </div>
                                             <div className="text-sm text-gray-400 mt-1">
-                                                Projects Completed
+                                                Projects Deployed
                                             </div>
                                         </div>
                                     </div>

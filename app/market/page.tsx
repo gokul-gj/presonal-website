@@ -14,7 +14,7 @@ import {
     mockBankNiftyOptionsData,
     mockFinServicesOptionsData
 } from "@/lib/marketData";
-import { useMarketData } from "@/lib/marketApi";
+import { useMarketData, useTopMovers } from "@/lib/marketApi";
 
 export default function MarketPage() {
     // Use auto-refresh hook for live data (refreshes every hour)
@@ -140,24 +140,7 @@ export default function MarketPage() {
 
             {/* Top Movers Section */}
             <section className="py-12 px-4 md:px-8 max-w-[1800px] mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-8"
-                >
-                    <div className="flex items-center gap-3 mb-2">
-                        <TrendingUp className="w-8 h-8 text-purple-400" />
-                        <h2 className="text-4xl md:text-5xl font-serif text-white">
-                            Top Movers
-                        </h2>
-                    </div>
-                    <p className="text-white/60 text-lg">
-                        Biggest gainers and losers from NIFTY 50
-                    </p>
-                </motion.div>
-
-                <TopMoversGrid gainers={mockTopGainers} losers={mockTopLosers} />
+                <TopMoversSection />
             </section>
 
             {/* Options Section */}
@@ -214,5 +197,44 @@ export default function MarketPage() {
                 </motion.div>
             </section>
         </main>
+    );
+}
+
+// Helper Component for Top Movers Section
+function TopMoversSection() {
+    const { data, loading } = useTopMovers();
+
+    // Use mock data for skeleton or initial render if completely empty
+    const gainers = data?.gainers || mockTopGainers; // Fallback to mock only if null, but loading state handles it
+    const losers = data?.losers || mockTopLosers;
+
+    return (
+        <>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-8"
+            >
+                <div className="flex items-center gap-3 mb-2">
+                    <TrendingUp className="w-8 h-8 text-purple-400" />
+                    <h2 className="text-4xl md:text-5xl font-serif text-white">
+                        Top Movers
+                    </h2>
+                </div>
+                <p className="text-white/60 text-lg">
+                    Biggest gainers and losers from NIFTY 50 (Live)
+                </p>
+            </motion.div>
+
+            {loading && !data ? (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-pulse">
+                    <div className="h-[400px] bg-white/5 rounded-2xl border border-white/10" />
+                    <div className="h-[400px] bg-white/5 rounded-2xl border border-white/10" />
+                </div>
+            ) : (
+                <TopMoversGrid gainers={gainers} losers={losers} />
+            )}
+        </>
     );
 }

@@ -102,21 +102,21 @@ export default function Hero() {
                     <SceneText progress={currentIndex} start={0} end={20} className="items-center justify-center">
                         <div className="text-center px-4">
                             <h1 className="font-serif text-6xl md:text-9xl font-bold tracking-tight text-white mb-4">Building Intelligence.</h1>
-                            <p className="font-sans text-xl md:text-2xl text-white/80">Data Analyst & AI Engineer</p>
+                            <p className="font-sans text-xl md:text-2xl text-white/80">AI/ML Engineer & Data Scientist</p>
                         </div>
                     </SceneText>
 
                     {/* 30-45% Text */}
                     <SceneText progress={currentIndex} start={35} end={55} className="items-end justify-start p-8 md:p-24">
                         <h2 className="font-sans text-5xl md:text-8xl font-bold text-white leading-tight max-w-4xl">
-                            From <span className="text-lime-400">RAG Systems</span>...
+                            From <span className="text-lime-400">Data Pipelines</span>...
                         </h2>
                     </SceneText>
 
                     {/* 60-75% Text */}
                     <SceneText progress={currentIndex} start={70} end={90} className="items-end justify-end p-8 md:p-24">
                         <h2 className="font-sans text-5xl md:text-8xl font-bold text-white leading-tight text-right max-w-4xl">
-                            ...to <span className="text-purple-400">Agentic Workflows.</span>
+                            ...to <span className="text-purple-400">Intelligent Systems.</span>
                         </h2>
                     </SceneText>
                 </div>

@@ -86,3 +86,47 @@ export async function fetchIndicesData(): Promise<IndexData[]> {
         throw error;
     }
 }
+
+export interface MoversData {
+    gainers: StockMover[];
+    losers: StockMover[];
+}
+
+export interface MoversResponse {
+    success: boolean;
+    data: MoversData;
+    source: 'live' | 'mock';
+    timestamp: string;
+    error?: string;
+}
+
+export function useTopMovers(refreshInterval: number = 60000) {
+    const [data, setData] = useState<MoversData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [source, setSource] = useState<'live' | 'mock'>('mock');
+
+    const fetchData = useCallback(async () => {
+        try {
+            setLoading(true);
+            const response = await fetch('/api/market/movers');
+            const result: MoversResponse = await response.json();
+
+            if (result.success) {
+                setData(result.data);
+                setSource(result.source);
+            }
+        } catch (err) {
+            console.error('Error fetching movers:', err);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchData();
+        const interval = setInterval(fetchData, refreshInterval);
+        return () => clearInterval(interval);
+    }, [fetchData, refreshInterval]);
+
+    return { data, loading, source, refetch: fetchData };
+}
