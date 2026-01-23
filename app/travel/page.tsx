@@ -1,16 +1,18 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
+import TravelSection from "@/components/TravelSection";
+import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function TravelPage() {
     return (
-        <main className="bg-background min-h-screen">
+        <main className="bg-black min-h-screen text-white selection:bg-purple-500/30">
             <Navbar />
-            <div className="pt-32 px-4 md:px-8 max-w-[1800px] mx-auto">
-                <h1 className="text-[8vw] font-serif text-white mb-12">Travel</h1>
-                <p className="text-white/60 text-xl max-w-2xl font-sans">
-                    Exploring the world through a lens. From the Highlands to the Pacific.
-                    (Dummy Page Content)
-                </p>
+            <div className="pt-20">
+                <TravelSection />
             </div>
+            <Footer />
         </main>
     );
 }

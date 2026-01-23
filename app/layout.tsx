@@ -8,7 +8,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif"
 const classic = Cinzel({ subsets: ["latin"], variable: "--font-classic" });
 
 export const metadata: Metadata = {
-    title: "Creative Developer Portfolio",
+    title: "Gokul Gj",
     description: "Building Intelligence. From RAG Systems to Agentic Workflows.",
 };
 

@@ -14,7 +14,7 @@ import {
     mockBankNiftyOptionsData,
     mockFinServicesOptionsData
 } from "@/lib/marketData";
-import { useMarketData, useTopMovers } from "@/lib/marketApi";
+import { useMarketData, useTopMovers, useOptionsChain } from "@/lib/marketApi";
 
 export default function MarketPage() {
     // Use auto-refresh hook for live data (refreshes every hour)
@@ -27,8 +27,11 @@ export default function MarketPage() {
     const featuredIndices = indicesData.slice(0, 2); // Nifty 50 and Bank Nifty
     const otherIndices = indicesData.slice(2); // Sensex, Smallcap, Midcap, VIX
 
-    // Combine all options data for multi-index display
-    const allOptionsData = [mockOptionsData, mockBankNiftyOptionsData, mockFinServicesOptionsData];
+    // Fetch Live Options Chain
+    const { data: liveOptionsData, loading: optionsLoading } = useOptionsChain();
+
+    // Use mock data if live data is not yet available, but prefer live
+    const displayOptionsData = liveOptionsData || [mockOptionsData, mockBankNiftyOptionsData, mockFinServicesOptionsData];
 
     return (
         <main className="bg-background min-h-screen">
@@ -165,7 +168,7 @@ export default function MarketPage() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                 >
-                    <MultiIndexOptions optionsData={allOptionsData} />
+                    <MultiIndexOptions optionsData={displayOptionsData} />
                 </motion.div>
             </section>
 

@@ -3,6 +3,10 @@
 /.pnp
 .pnp.js
 
+# source/duplicate content
+/Project
+/Blogs
+
 # testing
 /coverage
 
@@ -23,6 +27,7 @@ yarn-debug.log*
 pnpm-debug.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel

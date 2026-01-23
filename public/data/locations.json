@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Bengaluru",
+        "coordinates": [
+            77.5946,
+            12.9716
+        ],
+        "count": 150
+    },
+    {
+        "name": "New York",
+        "coordinates": [
+            -74.006,
+            40.7128
+        ],
+        "count": 45
+    },
+    {
+        "name": "London",
+        "coordinates": [
+            -0.1276,
+            51.5074
+        ],
+        "count": 80
+    },
+    {
+        "name": "Dubai",
+        "coordinates": [
+            55.2708,
+            25.2048
+        ],
+        "count": 60
+    },
+    {
+        "name": "Singapore",
+        "coordinates": [
+            103.8198,
+            1.3521
+        ],
+        "count": 90
+    },
+    {
+        "name": "Paris",
+        "coordinates": [
+            2.3522,
+            48.8566
+        ],
+        "count": 30
+    }
+]

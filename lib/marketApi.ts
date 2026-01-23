@@ -130,3 +130,28 @@ export function useTopMovers(refreshInterval: number = 60000) {
 
     return { data, loading, source, refetch: fetchData };
 }
+
+export function useOptionsChain(refreshInterval: number = 30000) {
+    const [data, setData] = useState<any[] | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/market/options');
+                const result = await res.json();
+                if (result.success) setData(result.data);
+            } catch (e) {
+                console.error(e);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+        const interval = setInterval(fetchData, refreshInterval);
+        return () => clearInterval(interval);
+    }, [refreshInterval]);
+
+    return { data, loading };
+}
