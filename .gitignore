@@ -4,10 +4,13 @@
 .pnp.js
 
 # source/duplicate content
-/Project
 /Blogs
 
-# testing
+# Python/Project specific ignores
+Project/RAG_Production/.venv
+Project/RAG_Production/.env
+Project/RAG_Production/__pycache__/
+Project/RAG_Production/*.pyc
 /coverage
 
 # next.js
