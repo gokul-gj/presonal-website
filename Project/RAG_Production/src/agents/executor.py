@@ -34,77 +34,79 @@ def execute_order(state: Dict[str, Any]) -> Dict[str, Any]:
             "sell_put_strike": atm,
             "type": "Straddle"
         }
+    elif strategy_name == "Iron Fly":
+        atm = get_atm_strike(spot)
+        # Dynamic wing width: ~1-1.5% of spot or fixed. For Nifty (~25000), 200-300 pts is standard.
+        # Using a simple fixed width for robustness in demo, can be made dynamic later.
+        wing_width = 300 
+        strikes = {
+            "sell_call_strike": atm,
+            "sell_put_strike": atm,
+            "buy_call_strike": atm + wing_width,
+            "buy_put_strike": atm - wing_width,
+            "type": "Iron Fly"
+        }
     else:
         # Default Strangle
         strikes = get_strangle_strikes(spot, iv, days, sigma_mult)
     
     # Place Orders via Kite
-    call_strike = strikes["sell_call_strike"]
-    put_strike = strikes["sell_put_strike"]
+    # Prepare list of legs to process
+    legs_to_process = []
     
-    # Get real option symbols from option chain
+    # Sell Legs (Always present)
+    legs_to_process.append({"side": "CE", "strike": strikes["sell_call_strike"], "action": "SELL"})
+    legs_to_process.append({"side": "PE", "strike": strikes["sell_put_strike"], "action": "SELL"})
+    
+    # Buy Legs (Only for Iron Fly)
+    if strategy_name == "Iron Fly":
+        legs_to_process.append({"side": "CE", "strike": strikes["buy_call_strike"], "action": "BUY"})
+        legs_to_process.append({"side": "PE", "strike": strikes["buy_put_strike"], "action": "BUY"})
+
+    final_legs = []
+    
+    # Get real option symbols directly from option chain
     try:
         if option_chain is not None and not option_chain.empty:
-            # Option chain DataFrame has columns: strike, tradingsymbol_ce, tradingsymbol_pe, etc.
             available_strikes = option_chain['strike'].tolist()
             
-            # Find closest strike for Call
-            ce_strike = min(available_strikes, key=lambda x: abs(x - call_strike))
-            # Find closest strike for Put  
-            pe_strike = min(available_strikes, key=lambda x: abs(x - put_strike))
-            
-            # Get the actual trading symbols from Kite data
-            ce_row = option_chain[option_chain['strike'] == ce_strike]
-            pe_row = option_chain[option_chain['strike'] == pe_strike]
-            
-            if not ce_row.empty and ce_row['tradingsymbol_ce'].iloc[0]:
-                ce_symbol = ce_row['tradingsymbol_ce'].iloc[0]
-            else:
-                raise Exception(f"No CE option found for strike {ce_strike}")
+            for leg in legs_to_process:
+                target_strike = leg["strike"]
+                # Find closest available strike
+                actual_strike = min(available_strikes, key=lambda x: abs(x - target_strike))
                 
-            if not pe_row.empty and pe_row['tradingsymbol_pe'].iloc[0]:
-                pe_symbol = pe_row['tradingsymbol_pe'].iloc[0]
-            else:
-                raise Exception(f"No PE option found for strike {pe_strike}")
+                # Get symbol
+                row = option_chain[option_chain['strike'] == actual_strike]
+                col_name = f"tradingsymbol_{leg['side'].lower()}"
+                
+                if not row.empty and row[col_name].iloc[0]:
+                    symbol_code = row[col_name].iloc[0]
+                    # Add to final list
+                    lot_size = get_lot_size(symbol)
+                    final_legs.append({
+                        "type": leg["side"],
+                        "strike": actual_strike,
+                        "instrument": symbol_code,
+                        "quantity": lot_size,
+                        "action": leg["action"],
+                        "order_id": None
+                    })
+                    print(f"✅ Found option: {symbol_code} ({leg['action']})")
+                else:
+                    print(f"⚠️ Warning: Symbol not found for {leg['side']} {actual_strike}")
             
-            call_strike = ce_strike  # Use actual strike from chain
-            put_strike = pe_strike  # Use actual strike from chain
-            
-            print(f"✅ Found options: {ce_symbol} and {pe_symbol}")
         else:
             raise Exception("Option chain data not available")
     except Exception as e:
-        print(f"Error getting option symbols from chain: {e}")
+        print(f"Error getting option symbols: {e}")
         raise Exception(f"Cannot execute order without valid option chain data: {e}")
     
-    # Get dynamic lot size
-    lot_size = get_lot_size(symbol)
-    
-    print(f"--- [Executor] Generated Trade Plan: Sell {ce_symbol} and {pe_symbol} ---")
-    
-    # We DO NOT execute here anymore. We return the plan for user approval.
+    print(f"--- [Executor] Generated Trade Plan: {strategy_name} with {len(final_legs)} legs ---")
     
     order = {
-        "action": "SELL",
-        "strategy": strategy_name,  # Use dynamic strategy name (fix bug)
-        "legs": [
-            {
-                "type": "CE",
-                "strike": call_strike,
-                "instrument": ce_symbol,
-                "quantity": lot_size,  # Dynamic lot size from market data
-                "action": "SELL",
-                "order_id": None # To be filled after execution
-            },
-            {
-                "type": "PE",
-                "strike": put_strike,
-                "instrument": pe_symbol,
-                "quantity": lot_size,  # ✅ Fixed: Use dynamic lot_size instead of hardcoded 50
-                "action": "SELL",
-                "order_id": None
-            }
-        ],
+        "action": "COMBINATION",
+        "strategy": strategy_name,
+        "legs": final_legs,
         "analysis": strikes
     }
     

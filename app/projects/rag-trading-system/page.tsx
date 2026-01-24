@@ -2,8 +2,8 @@
 
 import Navbar from "@/components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Activity, Brain, Shield, Terminal, Play, CheckCircle, AlertCircle, ShoppingCart, Settings, TrendingUp } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Activity, Brain, Shield, Terminal, Play, CheckCircle, AlertCircle, ShoppingCart, Settings, TrendingUp, Calendar } from "lucide-react";
 import clsx from "clsx";
 
 interface AgentStep {
@@ -31,6 +31,25 @@ export default function RAGTradingPage() {
 
     // User Controls
     const [strategyMode, setStrategyMode] = useState<"Auto" | "Short Strangle" | "Short Straddle" | "Iron Fly">("Auto");
+    const [expiryDates, setExpiryDates] = useState<string[]>([]);
+    const [selectedExpiry, setSelectedExpiry] = useState<string>("");
+
+    // Fetch Expiries on Mount
+    useEffect(() => {
+        const fetchExpiries = async () => {
+            try {
+                const res = await fetch('/api/market/expiry');
+                const data = await res.json();
+                if (data.success && data.expiries?.length > 0) {
+                    setExpiryDates(data.expiries);
+                    setSelectedExpiry(data.expiries[0]); // Default to nearest
+                }
+            } catch (e) {
+                console.error("Failed to fetch expiries", e);
+            }
+        };
+        fetchExpiries();
+    }, []);
 
     const runAgentSystem = async () => {
         setIsRunning(true);
@@ -47,7 +66,10 @@ export default function RAGTradingPage() {
             const response = await fetch('/api/projects/rag-trading/run', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ strategyOverride: strategyMode })
+                body: JSON.stringify({
+                    strategyOverride: strategyMode,
+                    selectedExpiry: selectedExpiry
+                })
             });
             const result = await response.json();
 
@@ -146,20 +168,45 @@ export default function RAGTradingPage() {
                         </p>
                     </div>
 
-                    {/* Controls */}
-                    <div className="bg-white/5 border border-white/10 p-2 rounded-2xl flex items-center gap-2">
-                        {["Auto", "Short Strangle", "Short Straddle", "Iron Fly"].map((mode) => (
-                            <button
-                                key={mode}
-                                onClick={() => setStrategyMode(mode as any)}
-                                className={clsx(
-                                    "px-4 py-2 rounded-xl text-sm font-medium transition-all",
-                                    strategyMode === mode ? "bg-white text-black shadow-lg" : "text-white/60 hover:text-white"
-                                )}
-                            >
-                                {mode}
-                            </button>
-                        ))}
+                    {/* Controls Row */}
+                    <div className="flex flex-col md:flex-row gap-4 items-center">
+
+                        {/* Expiry Selector */}
+                        <div className="bg-white/5 border border-white/10 p-2 rounded-2xl flex items-center gap-2">
+                            <div className="px-3 flex items-center gap-2 text-white/40 border-r border-white/10">
+                                <Calendar className="w-4 h-4" />
+                                <span className="text-sm font-medium">Expiry</span>
+                            </div>
+                            {expiryDates.length > 0 ? (
+                                <select
+                                    value={selectedExpiry}
+                                    onChange={(e) => setSelectedExpiry(e.target.value)}
+                                    className="bg-transparent text-white text-sm font-mono focus:outline-none px-2 py-1 appearance-none cursor-pointer hover:text-green-400 transition-colors"
+                                >
+                                    {expiryDates.map(date => (
+                                        <option key={date} value={date} className="bg-black text-white">{date}</option>
+                                    ))}
+                                </select>
+                            ) : (
+                                <span className="text-white/20 text-xs px-2">Loading...</span>
+                            )}
+                        </div>
+
+                        {/* Strategy Selector */}
+                        <div className="bg-white/5 border border-white/10 p-2 rounded-2xl flex items-center gap-2">
+                            {["Auto", "Short Strangle", "Short Straddle", "Iron Fly"].map((mode) => (
+                                <button
+                                    key={mode}
+                                    onClick={() => setStrategyMode(mode as any)}
+                                    className={clsx(
+                                        "px-4 py-2 rounded-xl text-sm font-medium transition-all",
+                                        strategyMode === mode ? "bg-white text-black shadow-lg" : "text-white/60 hover:text-white"
+                                    )}
+                                >
+                                    {mode}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </motion.div>
 

@@ -109,7 +109,7 @@ export async function POST(req: Request) {
                 id: 2,
                 agent: "Market Researcher (Llama 3)",
                 status: "completed",
-                message: `${strategyDecision.market_sentiment || 'N/A'}`
+                message: `${result.research_data || 'N/A'}`
             },
             {
                 id: 3,
@@ -181,6 +181,8 @@ function generatePayoffData(order: any, spotPrice: number) {
 
             if (leg.action === "SELL") {
                 pnl += (premium - intrinsic) * qty;
+            } else if (leg.action === "BUY") {
+                pnl += (intrinsic - premium) * qty;
             }
         });
 
