@@ -222,8 +222,17 @@ app = workflow.compile()
 
 if __name__ == "__main__":
     print("Starting Hybrid Agentic RAG System...")
+    
+    # Check for manual strategy override from environment
+    import os
+    user_override = os.environ.get("USER_SELECTED_STRATEGY")
+    
     # Initial run
     initial_state = {}
+    if user_override and user_override != "Auto":
+        initial_state["user_selected_strategy"] = user_override
+        print(f"Manual Override: {user_override}")
+    
     result = app.invoke(initial_state)
     print("\n\n__JSON_START__")
     import json
