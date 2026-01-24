@@ -225,6 +225,8 @@ if __name__ == "__main__":
     # Initial run
     initial_state = {}
     result = app.invoke(initial_state)
-    print("\n\n################ RESULT ################")
+    print("\n\n__JSON_START__")
     import json
-    print(json.dumps(result, indent=2))
+    # Use default=str to handle datetime objects
+    print(json.dumps(result, indent=2, default=str))
+    print("__JSON_END__")
