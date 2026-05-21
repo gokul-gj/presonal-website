@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import path from 'path';
+import fs from 'fs';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
     try {
@@ -14,6 +17,15 @@ export async function POST(req: Request) {
 
         // Use the Python executable from the virtual environment
         const pythonCmd = path.join(pythonProjectPath, '.venv', 'bin', 'python');
+
+        // Check if Python venv exists (won't exist on Vercel)
+        if (!fs.existsSync(pythonCmd)) {
+            console.warn('⚠️ Python venv not found. This route only works locally.');
+            return NextResponse.json({
+                success: false,
+                error: 'Python backend is not available in this environment. Run locally for full functionality.'
+            }, { status: 503 });
+        }
 
         console.log(`📂 Project path: ${pythonProjectPath}`);
         console.log(`🐍 Python: ${pythonCmd}`);

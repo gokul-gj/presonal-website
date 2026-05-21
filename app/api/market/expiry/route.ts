@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import path from 'path';
+import fs from 'fs';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
     try {
@@ -9,6 +12,15 @@ export async function GET(req: Request) {
         // Path to Python project
         const pythonProjectPath = path.join(process.cwd(), 'Project', 'RAG_Production');
         const pythonCmd = path.join(pythonProjectPath, '.venv', 'bin', 'python');
+
+        // Check if Python venv exists (won't exist on Vercel)
+        if (!fs.existsSync(pythonCmd)) {
+            console.warn('⚠️ Python venv not found. This route only works locally.');
+            return NextResponse.json({
+                success: false,
+                error: 'Python backend is not available in this environment.'
+            }, { status: 503 });
+        }
 
         // Command to run: Import client and print expiries as JSON
         const scriptCode = `
