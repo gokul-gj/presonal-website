@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#08070d" />
+<title>For Gopika — A Love Letter, Chapter by Chapter</title>
+<meta name="description" content="A scrapbook for Gopika Sujatha on her birthday — every chapter of our story, from the first hello in Dubai to our little Monica. Written with everything I have. — Gokul, May 25, 2026." />
+<meta property="og:title" content="For Gopika — Happy Birthday, my Kannan ♡" />
+<meta property="og:description" content="Our story, in chapters. Scroll slowly." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="WhatsApp%20Chat%20-%20Kannan/00003409-0H7A8695.jpg" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%A1%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08070d;
+    --bg-soft: #100e18;
+    --ink: #f3eef7;
+    --ink-soft: rgba(243, 238, 247, 0.72);
+    --ink-mute: rgba(243, 238, 247, 0.48);
+    --rose: #c98a9b;
+    --rose-soft: #e7c4cd;
+    --gold: #d8b07e;
+    --violet: #a78bfa;
+    --violet-deep: #7c4dff;
+    --line: rgba(255,255,255,0.08);
+    --line-soft: rgba(255,255,255,0.045);
+    --glass: rgba(255,255,255,0.035);
+    --glass-strong: rgba(255,255,255,0.06);
+    --radius-lg: 22px;
+    --radius-md: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+  ::selection { background: rgba(167,139,250,0.35); color: #fff; }
+
+  /* ───────── Ambient background ───────── */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .ambient::before, .ambient::after {
+    content: ""; position: absolute; border-radius: 50%;
+    filter: blur(120px); opacity: 0.35;
+  }
+  .ambient::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #7c4dff 0%, transparent 70%);
+    top: -150px; left: -150px;
+  }
+  .ambient::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #c98a9b 0%, transparent 70%);
+    bottom: -100px; right: -100px;
+    opacity: 0.25;
+  }
+  .grain {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.5;
+    mix-blend-mode: screen;
+  }
+  .petals {
+    position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+  }
+  .petal {
+    position: absolute; top: -40px; opacity: 0;
+    animation: fall linear infinite;
+    font-size: 14px;
+    filter: blur(0.3px);
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-40px) rotate(0deg);  opacity: 0; }
+    10%  { opacity: 0.55; }
+    90%  { opacity: 0.55; }
+    100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+  }
+
+  /* ───────── Layout ───────── */
+  main { position: relative; z-index: 5; }
+  .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .narrow { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+  /* Typography */
+  .display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .script { font-family: 'Caveat', cursive; font-weight: 500; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .eyebrow .dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--rose); margin-right: 14px; vertical-align: middle;
+    box-shadow: 0 0 12px rgba(201,138,155,0.8);
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.15; }
+
+  /* ───────── HERO ───────── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; padding: 80px 28px;
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
+    opacity: 0.45;
+    filter: contrast(1.05) saturate(0.9);
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 0%, rgba(8,7,13,0.55) 55%, rgba(8,7,13,0.95) 100%),
+      linear-gradient(180deg, rgba(8,7,13,0.4) 0%, rgba(8,7,13,0.6) 60%, rgba(8,7,13,1) 100%);
+  }
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 880px; }
+  .hero .eyebrow { margin-bottom: 36px; opacity: 0; animation: fadeUp 1.4s 0.2s forwards; }
+  .hero h1.name {
+    font-size: clamp(80px, 16vw, 220px);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+    background: linear-gradient(180deg, #ffffff 0%, #e7c4cd 60%, #c98a9b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+    opacity: 0; animation: fadeUp 1.6s 0.6s forwards;
+  }
+  .hero .surname {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-soft);
+    margin-bottom: 36px;
+    opacity: 0; animation: fadeUp 1.4s 1s forwards;
+  }
+  .hero .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 0 auto 56px;
+    opacity: 0; animation: fadeUp 1.4s 1.3s forwards;
+  }
+  .hero .tagline span { color: var(--rose-soft); }
+  .hero .date-stamp {
+    display: inline-flex; gap: 18px; align-items: center;
+    padding: 12px 26px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    opacity: 0; animation: fadeUp 1.4s 1.6s forwards;
+  }
+  .hero .date-stamp .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--rose);
+    box-shadow: 0 0 0 0 rgba(201,138,155,0.7);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(201,138,155,0.7); }
+    70% { box-shadow: 0 0 0 16px rgba(201,138,155,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,138,155,0); }
+  }
+  .hero .scroll-cue {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    color: var(--ink-mute); font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; text-align: center; z-index: 2;
+    opacity: 0; animation: fadeUp 1.4s 1.9s forwards;
+  }
+  .hero .scroll-cue .line {
+    display: block; width: 1px; height: 50px; background: var(--line);
+    margin: 18px auto 0; position: relative; overflow: hidden;
+  }
+  .hero .scroll-cue .line::after {
+    content: ""; position: absolute; top: -50px; left: 0; width: 100%; height: 30px;
+    background: linear-gradient(180deg, transparent, var(--rose-soft));
+    animation: scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { top: -50px; } 100% { top: 100%; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ───────── Section base ───────── */
+  section.chapter {
+    padding: 120px 0;
+    position: relative;
+  }
+  section.chapter + section.chapter::before {
+    content: ""; display: block; width: 1px; height: 80px;
+    background: linear-gradient(180deg, transparent, var(--line), transparent);
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+  }
+  .chapter-head {
+    text-align: center; margin-bottom: 70px;
+  }
+  .chapter-head .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rose-soft);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .chapter-head .number::before,
+  .chapter-head .number::after {
+    content: ""; display: block; width: 36px; height: 1px; background: var(--line);
+  }
+  .chapter-head h2 {
+    font-size: clamp(38px, 5.8vw, 72px);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .chapter-head h2 em {
+    font-style: italic;
+    background: linear-gradient(180deg, #e7c4cd 0%, #c98a9b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .chapter-head .when {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+  }
+
+  /* Card / Story block */
+  .card {
+    background: var(--glass);
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 44px 48px;
+    color: var(--ink-soft);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 1.1em;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card p .accent { color: var(--rose-soft); font-style: italic; }
+  .card p .stamp {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    padding: 2px 12px;
+    border: 1px solid rgba(201,138,155,0.3);
+    border-radius: 999px;
+    margin-right: 10px;
+    transform: translateY(-2px);
+  }
+
+  /* Two-column layout for chapters */
+  .duo {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .duo.reverse > :first-child { order: 2; }
+  @media (max-width: 900px) {
+    .duo { grid-template-columns: 1fr; gap: 36px; }
+    .duo.reverse > :first-child { order: 0; }
+    .card { padding: 32px 26px; }
+    section.chapter { padding: 80px 0; }
+  }
+
+  /* Single photo frame */
+  .photo {
+    position: relative; overflow: hidden; border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    cursor: zoom-in;
+    aspect-ratio: 4 / 5;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
+  }
+  .photo.landscape { aspect-ratio: 4 / 3; }
+  .photo.square { aspect-ratio: 1 / 1; }
+  .photo.tall { aspect-ratio: 3 / 4; }
+  .photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .photo:hover img { transform: scale(1.05); }
+  .photo .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 28px 24px 22px;
+    background: linear-gradient(180deg, transparent, rgba(8,7,13,0.85));
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 16px;
+    color: var(--rose-soft);
+    pointer-events: none;
+  }
+  .photo .cap .label {
+    display: block; font-family: 'Inter', sans-serif; font-style: normal;
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 4px;
+  }
+
+  /* Gallery grid */
+  .grid {
+    display: grid; gap: 20px;
+  }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 760px) {
+    .grid.cols-3, .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid.cols-2 { grid-template-columns: 1fr; }
+  }
+
+  /* Video card — story-style (vertical) */
+  .video-card {
+    position: relative; border-radius: var(--radius-lg);
+    overflow: hidden; border: 1px solid var(--line);
+    background: #000;
+    aspect-ratio: 9 / 16;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8);
+  }
+  .video-card video {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .video-card .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 28px 22px 20px;
+    background: linear-gradient(180deg, transparent, rgba(8,7,13,0.85));
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 15px;
+    color: var(--rose-soft);
+    pointer-events: none;
+  }
+  .video-card .cap .label {
+    display: block; font-family: 'Inter', sans-serif; font-style: normal;
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 4px;
+  }
+  .video-card .play-pulse {
+    position: absolute; inset: 0; pointer-events: none;
+    display: grid; place-items: center;
+    opacity: 0.85;
+  }
+  .video-card .play-pulse::after {
+    content: "▶"; color: rgba(255,255,255,0.85);
+    font-size: 38px;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  }
+  .video-card video[autoplay] ~ .play-pulse,
+  .video-card.playing .play-pulse { opacity: 0; }
+  .video-row {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1100px) {
+    .video-row { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .video-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .video-row { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+  }
+
+  /* Chat bubbles */
+  .chat {
+    display: flex; flex-direction: column; gap: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .chat .row {
+    display: flex; flex-direction: column; max-width: 78%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px; line-height: 1.5;
+  }
+  .chat .row.me { align-self: flex-end; align-items: flex-end; }
+  .chat .row.her { align-self: flex-start; align-items: flex-start; }
+  .chat .bubble {
+    padding: 10px 14px; border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    color: var(--ink);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    word-wrap: break-word;
+  }
+  .chat .row.me .bubble {
+    background: linear-gradient(135deg, rgba(167,139,250,0.18), rgba(201,138,155,0.15));
+    border-color: rgba(167,139,250,0.25);
+    border-bottom-right-radius: 4px;
+  }
+  .chat .row.her .bubble {
+    background: rgba(255,255,255,0.05);
+    border-bottom-left-radius: 4px;
+  }
+  .chat .row + .row.me { margin-top: 4px; }
+  .chat .row + .row.her { margin-top: 4px; }
+  .chat .name {
+    font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 4px;
+    padding: 0 6px;
+  }
+  .chat .meta {
+    font-size: 10px; color: var(--ink-mute); margin-top: 4px; padding: 0 6px;
+  }
+  .chat-frame {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px;
+    position: relative;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+  }
+  .chat-frame::before {
+    content: "WhatsApp · Kannan ♡";
+    display: block; text-align: center;
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 22px;
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+
+  /* Letter cards (her words) */
+  .letter-card {
+    position: relative;
+    background:
+      linear-gradient(145deg, rgba(231,196,205,0.07), rgba(167,139,250,0.04));
+    border: 1px solid rgba(231,196,205,0.16);
+    border-radius: var(--radius-lg);
+    padding: 50px 48px 46px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .letter-card::before {
+    content: "“";
+    position: absolute; top: 4px; left: 22px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 140px; line-height: 1; font-style: italic;
+    color: rgba(231,196,205,0.18);
+  }
+  .letter-card p {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .letter-card p:last-of-type { margin-bottom: 0; }
+  .letter-card .meta {
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(231,196,205,0.15);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--rose-soft);
+    display: flex; justify-content: space-between;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 700px) {
+    .letter-card { padding: 40px 28px 32px; }
+    .letter-card p { font-size: 22px; }
+  }
+
+  /* Things list */
+  .things {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  }
+  @media (max-width: 700px) { .things { grid-template-columns: 1fr; } }
+  .thing {
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  }
+  .thing:hover {
+    transform: translateY(-3px);
+    border-color: rgba(201,138,155,0.3);
+    background: var(--glass-strong);
+  }
+  .thing .icon {
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 10px; display: block;
+    font-weight: 600;
+  }
+  .thing .text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* Timeline mini */
+  .timeline {
+    list-style: none; margin: 12px 0 0;
+  }
+  .timeline li {
+    display: flex; gap: 22px; padding: 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .when {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--rose);
+    min-width: 130px; flex-shrink: 0;
+    letter-spacing: 0.05em;
+  }
+  .timeline .what {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* Polaroid */
+  .polaroid {
+    background: #fafafa;
+    padding: 12px 12px 50px;
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,0.7);
+    transform: rotate(-2deg);
+    position: relative;
+    cursor: zoom-in;
+    border-radius: 3px;
+    transition: transform 0.6s ease;
+  }
+  .polaroid:hover { transform: rotate(0deg) scale(1.02); }
+  .polaroid img {
+    width: 100%; aspect-ratio: 1/1; object-fit: cover;
+    display: block;
+  }
+  .polaroid .caption {
+    position: absolute; bottom: 12px; left: 0; right: 0;
+    text-align: center; color: #4a3a40;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+  }
+
+  /* Birthday letter (final) */
+  .birthday-frame {
+    background: linear-gradient(145deg, rgba(231,196,205,0.04), rgba(167,139,250,0.04));
+    border: 1px solid rgba(231,196,205,0.2);
+    border-radius: 28px;
+    padding: 70px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .birthday-frame::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top, rgba(201,138,155,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .birthday-frame .salutation {
+    font-family: 'Caveat', cursive;
+    font-size: 44px; color: var(--rose-soft);
+    margin-bottom: 24px; line-height: 1.2;
+  }
+  .birthday-frame p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 1.2em;
+  }
+  .birthday-frame p .em { font-style: italic; color: var(--rose-soft); }
+  .birthday-frame .signoff {
+    margin-top: 50px; padding-top: 30px;
+    padding-right: 18px;
+    border-top: 1px solid rgba(231,196,205,0.18);
+    text-align: right;
+  }
+  .birthday-frame .signoff .closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .birthday-frame .signoff .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 56px;
+    background: linear-gradient(180deg, #ffffff, #c98a9b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.15;
+    display: inline-block;
+    padding: 0 6px 4px 0;
+  }
+  .birthday-frame .signoff .stamp {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 14px;
+  }
+  @media (max-width: 760px) {
+    .birthday-frame { padding: 48px 28px; }
+    .birthday-frame .salutation { font-size: 36px; }
+    .birthday-frame p { font-size: 18px; }
+    .birthday-frame .signoff .signature { font-size: 44px; }
+  }
+
+  /* Caricature spotlight */
+  .spotlight {
+    text-align: center;
+  }
+  .spotlight .frame {
+    width: clamp(220px, 32vw, 320px);
+    aspect-ratio: 1/1;
+    margin: 0 auto 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 8px;
+    background:
+      conic-gradient(from 90deg, rgba(201,138,155,0.6), rgba(167,139,250,0.4), rgba(216,176,126,0.5), rgba(201,138,155,0.6));
+    box-shadow: 0 0 70px rgba(201,138,155,0.25);
+  }
+  .spotlight .frame > div {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: var(--bg);
+    overflow: hidden;
+    position: relative;
+  }
+  .spotlight .frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2,0.8,0.2,1), transform 1s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: 0.1s; }
+  .reveal.d2 { transition-delay: 0.2s; }
+  .reveal.d3 { transition-delay: 0.3s; }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 999;
+    display: none;
+    align-items: center; justify-content: center;
+    background: rgba(8,7,13,0.96);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    cursor: zoom-out;
+    animation: lbIn 0.4s ease;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 95vw; max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.9);
+  }
+  .lightbox .close {
+    position: absolute; top: 24px; right: 32px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+    color: var(--ink); font-size: 22px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; backdrop-filter: blur(10px);
+  }
+  @keyframes lbIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  /* Marquee divider with motif */
+  .motif {
+    text-align: center; padding: 60px 0;
+    color: var(--ink-mute); font-size: 14px; letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+  .motif::before, .motif::after {
+    content: "·"; margin: 0 14px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 80px 28px 60px;
+    text-align: center;
+    position: relative; z-index: 5;
+    border-top: 1px solid var(--line);
+    margin-top: 60px;
+  }
+  footer .heart {
+    color: var(--rose); font-size: 18px;
+    animation: beat 1.6s ease-in-out infinite;
+    display: inline-block;
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.18); }
+    40% { transform: scale(1); }
+  }
+  footer .copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+<div class="grain"></div>
+<div class="petals" id="petals"></div>
+
+<main>
+
+  <!-- ═══════════════════════════════ -->
+  <!--           H E R O                 -->
+  <!-- ═══════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-bg">
+      <img src="WhatsApp%20Chat%20-%20Kannan/00003409-0H7A8695.jpg" alt="Gopika & Gokul" />
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow"><span class="dot"></span>A scrapbook for my favourite person · May 25, 2026</div>
+      <h1 class="name">Gopika</h1>
+      <div class="surname">my Girl · my Kannan · my home</div>
+      <p class="tagline">
+        "You hold my heart, you hold our home…<br/>
+        <span>and soon, you'll hold our whole world.</span>"
+      </p>
+      <div class="date-stamp">
+        <span class="pulse"></span>
+        Written with everything I have — for your birthday
+      </div>
+    </div>
+    <div class="scroll-cue">
+      Begin the story
+      <span class="line"></span>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   OPENING NOTE FROM GOKUL         -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">prologue · for my Gopu</div>
+        <h2><em>before</em> we begin…</h2>
+      </div>
+      <div class="card reveal d1">
+        <p>For the longest time, you kept asking me to write you a letter — one that says everything, one that says how much I love you, even the things that are hard to put on paper. You even wrote me many letters first, and waited patiently for mine. I kept saying yes, kept meaning to, and somehow never could find the right words to begin.</p>
+        <p><span class="accent">So Gopu, here it is — finally.</span> Not on paper, because honestly, my handwriting next to yours looks like a prescription. But it is real, and it has every single date, every memory, every small thing I'd never want to forget about us.</p>
+        <p>This is our story. Scroll slowly. Stop where you smile. I built this so that even years from now, on any random Tuesday, you can open it and remember <em>exactly</em> how much you are loved.</p>
+        <p style="text-align: right; margin-top: 28px;">
+          <span class="script" style="font-size: 28px; color: var(--rose-soft);">— Gokul, always yours</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 1 — FATE SWIPES FIRST  -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter one · late 2024</div>
+        <h2>Fate <em>swipes</em> first</h2>
+        <div class="when">An accidental swipe on a matrimony app. A profile that refused to be deleted. A quiet moment that set everything into motion.</div>
+      </div>
+
+      <div class="duo">
+        <div class="card reveal">
+          <p>It didn't begin the way most stories begin. There was no dramatic meeting, no grand gesture, no perfectly planned moment. <span class="accent">It started with an accidental swipe on a matrimony app.</span></p>
+          <p>You accidentally swiped right on many profiles, Gopu. When you realized what happened, you rushed to delete all those interests — but fate had other plans. Out of all of them, my profile somehow remained. And that one small, accidental swipe that wasn't undone set everything into motion.</p>
+          <p>Word of the interest made its way from <em>Mr. Gopakumar</em> to <em>Mr. Ashok (Athuvi)</em>. Athuvi came home and told you guys about the alliance. You checked the profile and started to like me, and you began dreaming.</p>
+        </div>
+
+        <div class="reveal d1">
+          <div class="card" style="background: linear-gradient(145deg, rgba(231,196,205,0.07), rgba(167,139,250,0.04)); border-color: rgba(231,196,205,0.16);">
+            <p style="text-align: center; font-style: italic; font-size: 21px; color: var(--rose-soft);">A swipe not quite undone.<br/>A profile that stayed.<br/>A girl who was already dreaming.</p>
+            <p style="text-align: center; margin-top: 12px; font-size: 16px; color: var(--ink-mute);">— the quietest beginning to the loudest love</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 2 — FIRST VIDEO CALL   -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter two · January 2025</div>
+        <h2>The first <em>video call</em></h2>
+        <div class="when">A family in Abu Dhabi. A phone passed hand to hand. A girl who recorded the audio — just to keep his voice.</div>
+      </div>
+
+      <div class="duo reverse">
+        <div class="card reveal">
+          <p><span class="stamp">ABU DHABI</span>You were with your family in Abu Dhabi at the time, so the first real conversation happened over a video call arranged by our fathers. <span class="accent">The whole of your family was there</span> — Athuvi, Gayathri chechi, Vineethettan, Vidya aunty, Appu. You went to your room to talk to me, while everyone else waited outside for you to come out with your response.</p>
+          <p>You had been skipping classes at Amrita just to spend those precious extra days with them before going back to college. When you finally took the phone in your room, you barely spoke. I did the majority of the talking that day, and honestly, I left that call thinking you were just a very silent girl.</p>
+          <p>I remember talking endlessly about silly and senseless topics to fill the silence. But none of that mattered to you, Gopu. You loved every bit of it. <span class="accent">You were so certain about me that you recorded the audio of our video call.</span> We listened to that audio together later when we were travelling to Thiruvalla in our car, and I was so embarrassed!</p>
+        </div>
+
+        <div class="reveal d1">
+          <div class="things">
+            <div class="thing">
+              <span class="icon">the whole family</span>
+              <div class="text">Athuvi, Gayathri, Vineeth, Vidya, Appu — everyone waiting outside your room in Abu Dhabi, eagerly waiting for your response about a stranger who wouldn't stay one.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">skipping classes</span>
+              <div class="text">You were supposed to be at Amrita. Instead you stayed in Abu Dhabi, just to be near your family a few more days. That's who you are.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">silly topics</span>
+              <div class="text">I talked about nonsense. You listened like it was poetry. That gap between us — I didn't see it then. I see it now.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">the recording</span>
+              <div class="text">You recorded the audio of our first video call. We listened to it later while travelling to Thiruvalla in the car, and I was so embarrassed!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;" class="reveal d2">
+        <div class="card narrow" style="max-width: 720px; margin: 0 auto;">
+          <p class="serif" style="font-size: 22px; font-style: italic; color: var(--rose-soft); text-align: center; margin-bottom: 18px;">
+            The Horoscope Test
+          </p>
+          <p style="text-align: center;">Athuvi had two horoscopes that he had sent to Vidya aunty's parents to check the match. Since we hadn't responded much, he might have preferred the other one — but I know you didn't want the other to match! When you and Chechi were at the beauty parlor, Vidya aunty called to say the horoscope matched. Chechi excitedly shouted the news, but you were confused about which one it was. She double-checked to confirm it was mine, and I know exactly how happy you were in that moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 3 — THE PENNUKANAL    -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter three · January 25, 2025</div>
+        <h2>The <em>Pennukanal</em></h2>
+        <div class="when">A wedding in Alappuzha, a rest stop at Club 7, a family that almost gave up waiting, and a conversation no one could end.</div>
+      </div>
+
+      <div class="duo">
+        <div class="card reveal">
+          <p><span class="stamp">JAN 25</span>The formal pennukanal was set. That day, we had been travelling — a wedding in Alappuzha first, then making our way back through Thiruvalla. Tired from the road, we stopped to rest at <span class="accent">Club 7 in Thiruvalla</span> — the very same place that would later become a little landmark in our story.</p>
+          <p>By the time we finally arrived at your home, it was around 3 or 4 in the afternoon. <em>Your family had been watching the clock, anxiously wondering if we would even come.</em></p>
+          <p>When we started talking, something clicked almost immediately. Gayathri, Suraj — relatives and all — joined the conversation at some point, but the heart of the meeting was between us. We talked for so long that our families eventually had to call out from the other room — <span class="accent">"how much longer will this go on?"</span> 😄</p>
+          <p>That day I came to know that you were not the silent girl that I thought you were. The fact that it had to be interrupted said everything about how comfortable we already were with each other.</p>
+          <p>At the end, you looked at me and asked simply, <em>"Are you okay with me?"</em> I said I had to think about it and discuss with my family. For a moment, your heart dropped — you thought I didn't like you. But that was just me being careful and honest, the way I always am.</p>
+        </div>
+
+        <div class="reveal d1">
+          <div style="max-width: 360px; margin: 0 auto;">
+            <div class="video-card">
+              <video src="photos/pennukanal.mp4" muted loop playsinline preload="metadata" controls></video>
+              <div class="cap"><span class="label">pennukanal · Jan 25, 2025</span>The day we met. The conversation that refused to end.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;" class="reveal d2">
+        <div class="card narrow" style="max-width: 720px; margin: 0 auto;">
+          <p class="serif" style="font-size: 22px; font-style: italic; color: var(--rose-soft); text-align: center; margin-bottom: 18px;">
+            That day I realized I had met someone far more experienced in life than I was.
+          </p>
+          <p style="text-align: center;">Losing your mom at a young age, moving from India to the UAE to complete your schooling, travelling to Hungary and then to Ukraine for your medical studies, and navigating through rough paths — living alone, dealing with bullying from seniors, not-so-friendly classmates, and untrustworthy roommates. You had fought through so much, and it made you the incredible person sitting in front of me.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 4 — THE ANSWER         -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">chapter four · February 2025</div>
+        <h2>The <em>answer</em></h2>
+        <div class="when">A family waiting eagerly. A phone call that brought happy news. And then, finally — yes.</div>
+      </div>
+
+      <div class="card reveal d1">
+        <p>After the pennukanal, your family waited a lot for a reply. I know you were eagerly waiting for it. After a few days, Athuvi asked my father about the decision, and my father informed him that I had travelled to Bangalore and didn't get time to discuss it yet. We were taking it casually, as it wasn't the first time, right? But I didn't know, Gopu, that you were so eagerly waiting.</p>
+        <p>You later told me that you, Athuvi, and Chechi were all sitting on a bed, complaining about what was taking so long. <span class="accent">Then the call finally came from my father, and it was happy news.</span></p>
+        <p>The plates changed, and everyone was overjoyed.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 5 — SHE MADE THE MOVE -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter five · January 29, 2025</div>
+        <h2>She made the <em>first</em> move</h2>
+        <div class="when">Numbers exchanged through fathers. A boy too tired to text. A girl who showed up anyway.</div>
+      </div>
+
+      <div class="duo reverse">
+        <div class="card reveal">
+          <p>Numbers were exchanged through our fathers — Athuvi passed your number to my father, and vice versa. But me, burnt out from a long stretch of matrimony conversations with girls I hadn't connected with, <span class="accent">I wasn't in the mood to start yet another chat.</span> I was tired, indifferent, and honestly a little fed up.</p>
+          <p>So you made the first move. On <span class="stamp">JAN 29</span> a message came through:</p>
+          <p style="text-align: center; font-size: 21px; padding: 12px 0;"><em>"Hi,Gopika here<br/>Achan number thannu<br/>How are you, officil aano?😊"</em></p>
+          <p>It was warm, light, and easy. And from that first message, something began to grow.</p>
+          <p>I mentioned that your chechi had followed me on Instagram that morning. You told me your Ammai had already followed me days earlier, even before the pennukanal, while checking horoscopes. <em>"Appo ammai keri score cheydu"</em> — you laughed about it, and I could already feel the playfulness between us.</p>
+          <p>We talked about your chicken embryo research project at Amrita — creating a model of calcification in chicken embryo, you and your <em>"kozhidem muttayudem sahakaranam."</em> You told me about your lab, your guide, how you spent mornings checking on eggs. I talked about photography, bike trips, badminton. <em>The conversation came easily — naturally.</em></p>
+          <p>Even still, I remained guarded. I kept saying <em>I'm busy</em>, not fully committing, not yet fully there. <span class="accent">You kept showing up anyway.</span></p>
+        </div>
+
+        <div class="reveal d1">
+          <div class="chat-frame">
+            <div class="chat">
+              <div class="row her">
+                <div class="name">Kannan</div>
+                <div class="bubble">Hi,Gopika here<br/>Achan number thannu<br/>How are you, officil aano?😊</div>
+                <div class="meta">— Jan 29, 2025, 11:04 AM · the message that started it all</div>
+              </div>
+              <div class="row me">
+                <div class="name">Gokul</div>
+                <div class="bubble">Hi</div>
+              </div>
+              <div class="row me">
+                <div class="bubble">Good morning</div>
+              </div>
+              <div class="row me">
+                <div class="bubble">Ha athe officila</div>
+              </div>
+              <div class="row me">
+                <div class="bubble">Chechi ravile insta enne follow cheythu</div>
+              </div>
+              <div class="row her">
+                <div class="bubble">Ammai Randu divasam munne thanne follow cheydu thudangi 😅</div>
+              </div>
+              <div class="row me">
+                <div class="bubble">Iswara 🙄🙄</div>
+              </div>
+              <div class="row her">
+                <div class="bubble">Nammalude horoscope okke nokkunna samayathe insta okke kandu pidichirunnu</div>
+              </div>
+              <div class="row her">
+                <div class="bubble">Appo ammai keri score cheydu, she was kind of fixed maybe 😅</div>
+              </div>
+              <div class="row her">
+                <div class="bubble">I was waiting for this moment 😅</div>
+              </div>
+              <div class="row me">
+                <div class="bubble">I love you ❤️</div>
+              </div>
+              <div class="row her">
+                <div class="bubble">Love you more 😘😘😘</div>
+                <div class="meta">— a thousand times, in a thousand chats</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 6 — THE TURNING POINT  -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter six · early February 2025</div>
+        <h2>The <em>turning</em> point</h2>
+        <div class="when">A fight. A cut call. A sister who picked up the phone. And the moment everything shifted.</div>
+      </div>
+
+      <div class="card reveal d1">
+        <p>Then came the day everything changed.</p>
+        <p>You, Gopu — exhausted from the one-sided effort and the constant <em>I'm busy</em> — reached your limit. In one phone call, you spoke sharply, emotionally — <span class="accent">and cut the call.</span></p>
+        <p>Your sister, witnessing it all, called me herself. I picked up. And in the background, <span class="accent">I could hear you crying.</span></p>
+        <p>That was the moment. Something in me shifted. I called you back. I became more present, more involved, more <em>there</em> — not because I was obligated to be, but because somewhere along the way, without quite noticing it, I had started to care.</p>
+        <p>We both laugh about it now. <span class="accent">It took a fight and some tears to crack me open.</span> But it worked.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 7 — FIRST REAL OUTING  -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter seven · February 16, 2025</div>
+        <h2>The first <em>real</em> outing</h2>
+        <div class="when">A morning on the beach. Red roses. A long drive. A theatre in the dark. And a day neither of us will ever forget.</div>
+      </div>
+
+      <!-- our first meet — red roses by the sea -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('photos/first-meet-roses.png')" style="width: clamp(280px, 55vw, 580px); aspect-ratio: 3/4;">
+          <div><img loading="lazy" src="photos/first-meet-roses.png" alt="Gopika on a beach, head tilted down, looking at a bouquet of red roses I gave her — our first outing" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">February 16, 2025 · red roses by the sea.</div>
+      </div>
+
+      <div class="duo reverse">
+        <div class="card reveal">
+          <p><span class="stamp">FEB 16</span>I came from Bangalore. Early that morning, I shared my live location, making my way to <span class="accent">Amritapuri to pick you up directly from your college campus</span>. You arranged a bouquet of red roses from a nearby shop.</p>
+          <p>We started the day at the beach — hugs in the morning light, the smell of the sea, roses in your hands. After the beach, we started driving towards Kottayam. It was a long drive, the kind where you don't really care where you're going because <em>the company is enough.</em> Somewhere along the way, we held hands. We stopped at a cafe and had our first proper lunch together as a couple.</p>
+          <p>Later, we headed to the theatre to watch <em>Bromance</em>. You kept your eyes closed. I kept mine open, nervous, watching you. We cuddled in the dark, and it was a quiet moment neither of us has been able to forget.</p>
+          <p>After the movie, we started to roam around. That's when we visited the school where I started my 1st standard, which coincidentally was the same school you went to write your NEET entrance exam. But the real unforgettable moment happened later, in the car near Gayathri Bhavan. That's where <span class="accent">our first kiss happened</span> — gentle, careful, and completely unforgettable.</p>
+          <p>You later wrote that you could still feel it on your lower lip long after you reached home. I kept the bouquet on my bed that night, not wanting the day to end.</p>
+          <p style="text-align: center; padding-top: 12px;"><span class="script" style="font-size: 28px; color: var(--rose-soft);">"Most memorable day of my life."</span></p>
+        </div>
+
+        <div class="reveal d1">
+          <div class="photo portrait" style="margin-bottom: 24px;" onclick="openLB('photos/cafe-lunch.jpg')">
+            <img loading="lazy" src="photos/cafe-lunch.jpg" alt="At the cafe having our first proper lunch">
+            <div class="cap">
+              <span class="label">first lunch</span>
+              At the cafe, before the movie.
+            </div>
+          </div>
+          <div class="things">
+            <div class="thing">
+              <span class="icon">🌹 the roses</span>
+              <div class="text">A bouquet arranged from near the campus. The first flowers between us, held by the sea.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">🚗 the long drive</span>
+              <div class="text">No destination. Just the road, the window down, and your hand in mine for the first time.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">🏫 the school</span>
+              <div class="text">It was the school where I started my 1st standard, and coincidentally, the school where you went to write your NEET entrance exam.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">🎬 the theatre</span>
+              <div class="text">Eyes closed. Eyes open. We were cuddling in the dark—and it was perfect.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">🤗 holding hands</span>
+              <div class="text">The first time. On a long drive. My hand found yours and stayed.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">💌 your words, later</span>
+              <div class="text">The kiss happened in the car near Gayathri Bhavan. "Lower lipinu peruppu undarunnu, even after reaching home." Your actual words. I read them a hundred times.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- real chat from that night -->
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="chat-frame" style="max-width: 580px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Eppo chundinte peruppu marittilla😄🤭</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Next time namalku kurachoode adipoli akkanam 😄</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Most memorable day of my life</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Lower lipinu peruppu undarunnu</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Even after reaching home 😄</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Marakulla...will remember everything part</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Effect of 1st kiss</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Your lips were wet and smooth, I was just keeping mine still 😄</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Bouquet avde?😄</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Ivide ind. Bedil 😅😅</div>
+              <div class="meta">— Feb 16, 2025 · 11 PM · the night we couldn't stop talking about</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gopika's list from that night -->
+      <div class="reveal d3" style="margin-top: 36px;">
+        <div class="letter-card" style="max-width: 540px; margin: 0 auto;">
+          <p>Morning in the beach, with red roses<br/>
+          Long drive<br/>
+          Holding hands<br/>
+          Cuddlings in theatre<br/>
+          Hug in the beach<br/>
+          Visiting school together<br/>
+          1st day out<br/>
+          1st lunch together<br/>
+          Our 1st lip lock ❤️❤️❤️</p>
+          <div class="meta">
+            <span>Gopika's own list</span>
+            <span>Feb 16, 2025 · 11:47 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 8 — LONG DISTANCE      -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">chapter eight · February – March 2025</div>
+        <h2>Long distance, <em>close</em> hearts</h2>
+        <div class="when">He went back to Bangalore. She went back to her hostel. But the distance didn't slow things down — if anything, it deepened the bond.</div>
+      </div>
+
+      <div class="card reveal d1">
+        <p>After that day, I went back to Bangalore and you back to your hostel at Amrita. But the distance didn't slow things down — <span class="accent">if anything, it deepened the bond.</span></p>
+        <p>Our days filled with long phone calls, late-night voice notes, shared research papers (you even roped me into helping you format a literature review on <em>vascular calcification!</em>), memes, Instagram reels sent at midnight, teasing about weights and gym plans, and quietly learning each other's rhythms.</p>
+        <p>You'd text me to eat properly. I'd message you when you hadn't replied in hours. You planned hypothetical visits to Club 7, imagining me arriving fresh from the station. I started looking up pre-wedding shoot ideas.</p>
+        <p>We talked about <span class="accent">moving to Bangalore together, joining a gym together, building a life together</span> — all of it said with the lightness of people who already know it's going to happen.</p>
+      </div>
+
+      <div class="reveal d2" style="margin-top: 40px;">
+        <div class="things" style="max-width: 680px; margin: 0 auto;">
+          <div class="thing">
+            <span class="icon">📞 long calls</span>
+            <div class="text">Hours on the phone every night. The kind of calls where you fall asleep and neither hangs up.</div>
+          </div>
+          <div class="thing">
+            <span class="icon">📝 research papers</span>
+            <div class="text">I helped you format a literature review on vascular calcification. I still don't fully understand it. I loved every minute.</div>
+          </div>
+          <div class="thing">
+            <span class="icon">📱 midnight reels</span>
+            <div class="text">Instagram reels at 1 AM. Memes at 2 AM. "Are you awake?" at 3 AM. Always.</div>
+          </div>
+          <div class="thing">
+            <span class="icon">🏡 planning ahead</span>
+            <div class="text">Bangalore flat. Gym membership. Pre-wedding shoot. We were building a life in our heads before it was real.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 9 — URAPIKAL             -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter nine · March 2025</div>
+        <h2>The <em>Urapikal</em></h2>
+        <div class="when">Both families gathered in Thiruvalla to fix the dates. She came in a beautiful saree. He showed up in a shirt and jeans. 😑</div>
+      </div>
+
+      <div class="duo">
+        <div class="card reveal">
+          <p><span class="stamp">THIRUVALLA</span>The day had finally come — the day both families would sit together, formally, to fix the dates for the engagement and wedding. <span class="accent">All of our family gathered at Thiruvalla.</span></p>
+          <p>You came dressed in a beautiful saree — elegant, graceful, exactly the way you always show up when it matters. And me? <em>Shirt and jeans.</em> 😑 You know my situation right. I'm sorry, Gopu. You always deserve the best from my side, even if it means me in a mundu and jubba. I was clueless, casual, and lucky you still said yes.</p>
+          <p>The families talked, laughed, negotiated, decided. Dates were fixed. <span class="accent">It was real now.</span> Not just phone calls and long-distance dreaming — a wedding was actually happening.</p>
+          <p>And that day, I brought something with me. A small basket, put together by hand, tied with ribbon. <span class="accent">The hamper.</span> Sent with everything I didn't yet know how to say out loud.</p>
+        </div>
+
+        <div class="reveal d1">
+          <div style="max-width: 360px; margin: 0 auto;">
+            <div class="video-card">
+              <video src="photos/hamper.mp4" muted loop playsinline preload="metadata" controls></video>
+              <div class="cap"><span class="label">Urapikal · the first gift</span>The basket I brought for you the day our families fixed the dates.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- my favourites — a saved compilation -->
+      <div class="reveal d3" style="margin-top: 60px;">
+        <div class="chapter-head" style="margin-bottom: 22px;">
+          <div class="number">my favourites · a saved compilation</div>
+          <h2 style="font-size: clamp(24px, 3.5vw, 32px);">A folder I kept of <em>you</em></h2>
+          <div class="when">Tiny frames I saved without telling you — the kind that make a year feel longer in the best way.</div>
+        </div>
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/stories/favourites.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">a private highlight reel</span>Some moments you'd forget. Some moments I refuse to.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 10 — ENGAGEMENT          -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter ten · April 2025</div>
+        <h2>I said yes <em>forever</em></h2>
+        <div class="when">A Noolukettu for Jaini, a wedding-eve at Cloud 7, and a ring that promised everything.</div>
+      </div>
+
+
+      <div class="reveal d1" style="max-width: 480px; margin: 0 auto 32px;">
+        <div class="photo portrait" onclick="openLB('photos/engagement-rings.jpg')">
+          <img loading="lazy" src="photos/engagement-rings.jpg" alt="Our hands with the engagement rings">
+          <div class="cap">
+            <span class="label">the rings</span>
+            We made it official. (Yours was definitely bigger!)
+          </div>
+        </div>
+      </div>
+
+      <div class="card narrow reveal d2" style="max-width: 760px; margin: 0 auto;">
+        <p>April was coming fast. First it was Jani's <em>Noolukettu</em>, and later, we said yes forever. At Jani's Noolukettu, we got our first professional couple photo. It's one of our favorite photos together — that's why I still have it as my WhatsApp DP.</p>
+        <p>Then, the day before our engagement, my family travelled together from Trivandrum to Club 7. It felt so unreal to me that we were actually getting engaged. Do you remember our phone call that night? You were having doubts, we had a small fight... but we came through all of that. The very next day, we made it official and exchanged our rings. <span class="accent">(And yes, you got the bigger ring than mine!)</span></p>
+        <p>A few days later, you flew back to Qatar. And the moment you landed, you started applying to colleges in Bangalore. You were already moving your whole life to be near mine. I think about that often, Gopu. About what that took.</p>
+      </div>
+
+      <!-- engagement story video -->
+      <div class="reveal d3" style="margin-top: 50px;">
+        <div class="chapter-head" style="margin-bottom: 22px;">
+          <div class="number">engagement · in motion</div>
+        </div>
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/stories/engagement-story.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">April 2025</span>The ring, the smile, the room I memorised that day.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 11 — TWIN BIRTHDAYS     -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter eleven · May 2025</div>
+        <h2>Birthday in <em>Bangalore</em></h2>
+        <div class="when">A Christ University entrance, a cancelled Hilton reservation, and double the cake.</div>
+      </div>
+
+      <div class="duo">
+        <div class="reveal">
+          <div class="card">
+            <p><span class="stamp">MAY '25</span>You came to Bangalore with Amma and Govindh to write the Christ University entrance. And the universe arranged it so beautifully — <span class="accent">it was your birthday, and Amma's, coming in 2 days.</span></p>
+            <p>I had made a Hilton booking for a romantic date, but they cancelled our reservation last minute. I had to make the arrangements so fast, making so many calls to find the best place. Then we took you there at night. Hopefully, you didn't know! We gifted you what we could, and Achan and Athuvi joined the video call. I hope you really enjoyed it. Then we returned to Tvm, and again you got the next cake from Athuvi. They asked Govindh to buy it, not me. Not sure why.</p>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="things">
+            <div class="thing">
+              <span class="icon">May · the surprise</span>
+              <div class="text">A Hilton booking that got cancelled last minute, leading to a frantic search for the perfect backup place for your birthday dinner.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">Two cakes</span>
+              <div class="text">One in Bangalore, and then another one back in Tvm sent by Athuvi (bought by Govindh, not me!).</div>
+            </div>
+            <div class="thing">
+              <span class="icon">May · the exam</span>
+              <div class="text">You came to write your Christ entrance just days before your birthday.</div>
+            </div>
+            <div class="thing">
+              <span class="icon">Always</span>
+              <div class="text">You stopped being "the girl from the matrimony" and started being family that day.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- her first birthday with me — May 25, 2025 -->
+      <div class="spotlight reveal d2" style="margin-top: 50px;">
+        <div class="frame" onclick="openLB('photos/birthday-2025-balloons.png')" style="width: clamp(280px, 55vw, 600px); aspect-ratio: 3/4;">
+          <div><img loading="lazy" src="photos/birthday-2025-balloons.png" alt="The two of us in front of a red-and-white happy birthday balloon arch — your first birthday with me" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">May 25, 2025 · your first birthday with me.</div>
+      </div>
+
+      <div class="card narrow reveal d3" style="max-width: 720px; margin: 30px auto 0; text-align: center;">
+        <p style="font-style: italic;">Red balloons, white balloons, a tiny <span class="accent">HAPPY BIRTHDAY</span> banner across the glass, and the kind of smile only your <em>first</em> birthday with someone wears. I had a year of these planned in my head already.</p>
+      </div>
+
+      <div class="reveal d3" style="margin-top: 50px;">
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/birthday.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">The Celebration</span>Cutting the cake on your special day.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 12 — THE WEDDING        -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter twelve · August 17, 2025</div>
+        <h2>The beginning of <em>forever</em></h2>
+        <div class="when">All your family picking sarees at Jayalakshmi, a Kerala wedding at the temple, and the moment a thaali made it official.</div>
+      </div>
+
+      <!-- THE ceremonial moment -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003375-VIS09106.jpg')">
+          <div><img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003375-VIS09106.jpg" alt="Thaali kettu — the moment we became forever" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">the thaali, the petals, the forever.</div>
+      </div>
+
+      <!-- our story — frame one (moved from pennukanal) -->
+      <div class="reveal" style="margin-bottom: 40px;">
+        <div class="photo landscape" style="max-width: 700px; margin: 0 auto;" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003402-0H7A7525.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003402-0H7A7525.jpg" alt="Looking at her">
+          <div class="cap">
+            <span class="label">our story — frame one</span>
+            I look at you the same way I did that first afternoon.
+          </div>
+        </div>
+      </div>
+
+      <!-- Bride portraits row -->
+      <div class="grid cols-3 reveal" style="margin-bottom: 28px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003342-VIS06588.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003342-VIS06588.jpg" alt="Kerala bride portrait">
+          <div class="cap">
+            <span class="label">the bride · Aug 17, 2025</span>
+            Kasavu sari, gold layered like history. I forgot how to breathe for a second.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003346-VIS08391.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003346-VIS08391.jpg" alt="Getting ready">
+          <div class="cap">
+            <span class="label">getting ready</span>
+            That little smile in the mirror — that's the smile I married.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003345-VIS08289.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003345-VIS08289.jpg" alt="Bride with Kathakali">
+          <div class="cap">
+            <span class="label">eyes closed, world stopped</span>
+            Kathakali behind you, Kerala in every fold of you.
+          </div>
+        </div>
+      </div>
+
+      <!-- Wider couple moments -->
+      <div class="grid cols-2 reveal d1" style="margin-bottom: 28px;">
+        <div class="photo landscape" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003357-DSC05545.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003357-DSC05545.jpg" alt="After the ceremony">
+          <div class="cap">
+            <span class="label">just married</span>
+            Garlands, mehendi hands, a smile I will keep for life.
+          </div>
+        </div>
+        <div class="photo landscape" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003368-SIV02341.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003368-SIV02341.jpg" alt="Cream and gold">
+          <div class="cap">
+            <span class="label">cream & gold</span>
+            You leaned in. The hallway went quiet. So did I.
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-up: ceremony details -->
+      <div class="grid cols-4 reveal d2" style="margin-bottom: 50px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003340-SIV01167.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003340-SIV01167.jpg" alt="Wedding entrance">
+          <div class="cap">
+            <span class="label">the entrance</span>
+            Kathakali and Mohiniyattam parted, and there you were.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003339-SIV00737.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003339-SIV00737.jpg" alt="With Mohiniyattam dancers">
+          <div class="cap">
+            <span class="label">at home, before</span>
+            Bharatanatyam at the door — Kerala welcoming Kerala.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003373-VIS07601.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003373-VIS07601.jpg" alt="Temple bow">
+          <div class="cap">
+            <span class="label">the temple</span>
+            Hands folded, hearts louder than every chant.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003365-SIV00581.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003365-SIV00581.jpg" alt="Under one umbrella">
+          <div class="cap">
+            <span class="label">under one umbrella</span>
+            Kerala monsoon, one umbrella, all I'll ever need.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reception portraits (moved from engagement chapter) -->
+      <div class="grid cols-3 reveal d1" style="margin-bottom: 28px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003404-0H7A8180.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003404-0H7A8180.jpg" alt="Reception portrait">
+          <div class="cap">
+            <span class="label">reception · Aug 18, 2025</span>
+            Henna, gold, and that quiet smile.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003410-0H7A8839.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003410-0H7A8839.jpg" alt="Henna hand">
+          <div class="cap">
+            <span class="label">your hands</span>
+            The ones I held first, the ones that build our home.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003415-0H7A7525.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003415-0H7A7525.jpg" alt="Looking">
+          <div class="cap">
+            <span class="label">a stolen frame</span>
+            Mid-laugh, mid-life, mid-yes.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reception row -->
+      <div class="grid cols-3 reveal d1" style="margin-bottom: 50px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003369-SIV02666.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003369-SIV02666.jpg" alt="Reception purple">
+          <div class="cap">
+            <span class="label">reception · Aug 18</span>
+            You looked over your shoulder and the room blurred.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003408-0H7A8616.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003408-0H7A8616.jpg" alt="Holding hands">
+          <div class="cap">
+            <span class="label">hands held</span>
+            Hearts louder than the cheers around us.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00003409-0H7A8695.jpg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00003409-0H7A8695.jpg" alt="Confetti">
+          <div class="cap">
+            <span class="label">confetti</span>
+            The whole sky decided to celebrate you.
+          </div>
+        </div>
+      </div>
+
+      <div class="card narrow reveal d1" style="max-width: 820px; margin: 0 auto 40px;">
+        <p><span class="stamp">AUG 1, '25</span>We all stayed at Taj Vivanta in Kochi and went saree shopping at Jayalakshmi. All your family gathered. It was chaos. It was perfect.</p>
+        <p><span class="stamp">AUG 17</span>The wedding day. The night before, I stayed at my brother's friend's place near Thiruvalla because home was too far. You were at your home having a bash, everyone cheering, enjoying... <span class="accent">Then morning came.</span> The temple in the rain, garlands, the thaali around your neck, and the tulasi mala — I remember every single second of it, Gopu.</p>
+        <p>We went to the auditorium, and I was not expecting such a beautiful wedding. It is the best wedding I have ever attended! 😅 The welcome was beyond my imagination, I was having goosebumps. Then it was your turn. Walking through the aisle to the Sita Kalyana song, wearing the beautiful saree we selected, with Athuvi holding your hand... It was mesmerizing. I will miss that day.</p>
+        <p><span class="stamp">AUG 18</span>The reception was a little rushed, but everything went fine. Hopefully everyone enjoyed, had great food, and liked the programs. You were stunning! I couldn't enjoy the food, hopefully you did. 😜 People kept talking about how beautiful you looked. They are right.</p>
+      </div>
+
+      <!-- wedding preparation · in motion -->
+      <div class="reveal d1" style="margin: 30px 0 50px;">
+        <div class="chapter-head" style="margin-bottom: 22px;">
+          <div class="number">wedding preparation · the days before</div>
+        </div>
+        <div class="video-row" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <div class="video-card">
+            <video src="photos/stories/gopu-hand-prep.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">your hand · mehendi days</span>The henna deepening. The countdown shrinking. Me, watching every detail.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/pre-wedding-shoot.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">pre-wedding shoot · in motion</span>The day we pretended to be ourselves for a camera — and somehow ended up more in love than the shoot expected.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- the wedding day · in motion -->
+      <div class="reveal d2" style="margin: 0 0 50px;">
+        <div class="chapter-head" style="margin-bottom: 22px;">
+          <div class="number">the wedding day · in motion</div>
+        </div>
+        <div class="video-row">
+          <div class="video-card">
+            <video src="photos/stories/wedding-1.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">moment one</span>The room you got ready in. The first time you smiled today.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/wedding-2.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">moment two</span>The entrance, the dancers, the door I walked through to find you.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/wedding-3.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">moment three</span>That second after the thaali — when the noise faded and only we remained.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/wedding-4.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">moment four</span>Garlands, rose petals, the people we love clapping us into forever.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="chat-frame" style="max-width: 580px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">I love you and always will ❤️❤️</div>
+            </div>
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">I love you and i miss you the moment you left ampotty 😘😘</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Happy four months to us 💕</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Thank you for every small to big effort. You deserve only the best 😘 God bless us to enjoy many more upcoming years!!!</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Thank you for the home you help me make 🥰😘</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Happy 5 months 🥰🥰</div>
+              <div class="meta">— Jan 17, 2026 · five months married</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 13 — ONAM + HOME        -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter thirteen · September 2025</div>
+        <h2>Our first Onam, our <em>first</em> home</h2>
+        <div class="when">Navayakulam temple, a long drive back, a terrible Airbnb, and one random walk that gave us Akshaya Residency.</div>
+      </div>
+
+      <!-- THE Onam pookalam spotlight -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('photos/onam-pookalam.png')">
+          <div><img loading="lazy" src="photos/onam-pookalam.png" alt="The two of us in front of our first Onam pookalam" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">our first Onam · the pookalam we laid by hand.</div>
+      </div>
+
+      <div class="duo reverse">
+        <div class="reveal">
+          <div class="card">
+            <p><span class="stamp">ONAM</span>We had our first Onam celebration with all — Govindh, Ammu, Tharun, Kuttu, Sachi, everyone! We went to Navayakulam temple, wore our onacodi, and ate sadya together. We laughed too much, and <span class="accent">the pookalam we laid that morning was the best one I have ever seen.</span> We enjoyed every single hour of it.</p>
+            <p>Then we drove back to Bangalore the next day. Amma packed all the stuff that she could. We took a bad Airbnb. You stayed in a place you would never have stayed in — for me, for us. You cooked there. You walked to your college bus stop. I'd walk you till the bus, and you'd turn back and wave like it was the first day of school.</p>
+            <p>And then one day I was fed up, so I went on a random walk — and found Akshaya Residency. We moved in within a week. We cleaned the whole day, forgot to eat, rented furniture, set up everything. That place became <span class="accent">our first home.</span> The struggle felt heavy then. Now it's the most beautiful chapter.</p>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="photo square" style="max-width: 420px; margin: 0 auto;" onclick="openLB('photos/pookalam.jpg')">
+            <img loading="lazy" src="photos/pookalam.jpg" alt="Pookalam">
+            <div class="cap">
+              <span class="label">our pooja corner</span>
+              The first thing we set up. Always lit.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A short Onam story clip -->
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="chapter-head" style="margin-bottom: 24px;">
+          <div class="number">Onam, in motion</div>
+        </div>
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/stories/onam-story.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">Onam '25</span>A few seconds of the day I keep wanting to relive.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- house hunting, rented home, first pub -->
+      <div class="reveal d2" style="margin-top: 60px;">
+        <div class="chapter-head" style="margin-bottom: 24px;">
+          <div class="number">house hunting · rented home · first pub</div>
+          <h2 style="font-size: clamp(26px, 4vw, 36px);">Building a <em>Bangalore</em> life, one drive at a time</h2>
+          <div class="when">We travelled a lot. We got tired. Now it's the kind of memory we smile at without warning.</div>
+        </div>
+        <div class="video-row">
+          <div class="video-card">
+            <video src="photos/stories/house-hunting.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">house hunting</span>Drive after drive, listing after listing — we were exhausted and laughing.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/video-2.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">the empty rooms</span>Akshaya Residency, before it became ours. So quiet. So full of plans.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/video-1.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">our living room</span>You, at home, in the home we built together.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/video-3.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">first pub visit</span>Our first Bangalore date night out. Under a tent. Under that one fairy light I still remember.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- first movie outing after wedding -->
+      <div class="reveal d3" style="margin-top: 50px;">
+        <div class="chapter-head" style="margin-bottom: 24px;">
+          <div class="number">first movie · after the wedding</div>
+        </div>
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/stories/first-movie.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">cinema · enjoyin'</span>Our first proper movie outing as a married couple. You were so happy. So was I.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- early-married morning chat -->
+      <div class="reveal d3" style="margin-top: 50px;">
+        <div class="chat-frame" style="max-width: 540px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Good morning ❤️</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Love you ❤️</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Love you more</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Love you more 😘</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Adipoli aytt indu nammude veedu 🥰</div>
+              <div class="meta">— Oct 2025 · the home we built in a week</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 14 — MALDIVES           -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter fourteen · first week of October 2025</div>
+        <h2>The <em>Maldives</em> escape</h2>
+        <div class="when">A trip we booked before the wedding. A private island. Coral we shouldn't have plucked.</div>
+      </div>
+
+      <!-- featured water-villa selfie -->
+      <div class="spotlight reveal" style="margin-bottom: 40px;">
+        <div class="frame" onclick="openLB('photos/maldives-water-villa.png')">
+          <div><img loading="lazy" src="photos/maldives-water-villa.png" alt="On the water-villa stairs, just the two of us above the lagoon" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">the villa steps · the lagoon was loud, but you were louder.</div>
+      </div>
+
+      <div class="grid cols-4 reveal" style="margin-bottom: 50px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.06.57.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.06.57.jpeg" alt="Maldives couple">
+          <div class="cap">
+            <span class="label">villa morning</span>
+            You woke up and the whole island was already small next to you.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.00.52.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.00.52.jpeg" alt="Sun on face">
+          <div class="cap">
+            <span class="label">sun on your face</span>
+            You said it was too hot. You still looked like this.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.08.23.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.08.23.jpeg" alt="Maldives">
+          <div class="cap">
+            <span class="label">island hopping</span>
+            We saw how people lived. I saw how I wanted to live — with you.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.08.49.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2001.08.49.jpeg" alt="Snorkel">
+          <div class="cap">
+            <span class="label">snorkel chronicles</span>
+            The day I plucked coral. I'm still sorry, ocean.
+          </div>
+        </div>
+      </div>
+
+      <div class="card narrow reveal d2" style="max-width: 760px; margin: 0 auto;">
+        <p>We were discussing a lot about where to go, where to stay. Then we finally fixed on Maldives! We booked it long before the wedding, and finally went the first week of October. We booked both Beach villas and Overwater villas. Private island, our beautiful villas, snorkeling, island hopping, romantic beach dinners every night. You said the heat was too much — you've always preferred the cold — but you smiled through all of it.</p>
+        <p><span class="accent">And then there was the coral.</span> We swam, we saw it, we plucked some thinking we could take it home. Then we found out we absolutely could not, then we threw all the corals in the water. We were sad that we could not take it home. We bruised our hands and legs doing that.</p>
+      </div>
+
+      <!-- honeymoon bed spotlight -->
+      <div class="spotlight reveal d1" style="margin: 50px 0;">
+        <div class="frame" onclick="openLB('photos/maldives-honeymoon-bed.png')" style="width: clamp(280px, 55vw, 600px); aspect-ratio: 3/4;">
+          <div><img loading="lazy" src="photos/maldives-honeymoon-bed.png" alt="The honeymoon bed in our Maldives villa, decorated with hearts and the words HAPPY HONEYMOON" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">the villa · hearts on the bed, you in the middle of all of it.</div>
+      </div>
+
+      <!-- moving moments — Maldives video row -->
+      <div class="reveal d1" style="margin-top: 50px;">
+        <div class="chapter-head" style="margin-bottom: 24px;">
+          <div class="number">Maldives, in motion</div>
+        </div>
+        <div class="video-row">
+          <div class="video-card">
+            <video src="photos/snorkel.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">underwater</span>Snorkelling — fins, fish, you laughing into the snorkel.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/maldives-evening.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">our favourite evening</span>The sky went pink and you went quiet. I have never been more in love.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/maldives-extra.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">island chronicles</span>One more from the trip — already a year away, still right here.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/maldives-extra-2.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">one more clip</span>A little something more from the trip — the kind of seconds that loop in my head.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- private-island vibe chat -->
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="chat-frame" style="max-width: 560px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Love you da 😍</div>
+            </div>
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Love you more 🥰🥰</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Ente kanna, nale beach dinner book cheytho?</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Booked. Sunset side. Just us 🌅</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Best wife ever ❤️❤️</div>
+              <div class="meta">— Maldives, October 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   INTERLUDE — UAE WITH ATHUVI    -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">interlude · UAE with Athuvi</div>
+        <h2>A trip that <em>Athuvi</em> wanted</h2>
+        <div class="when">Dates: October 18 – October 26, 2025. Athuvi asked us to come to Abu Dhabi to spend time together. He wanted to bring everyone together.</div>
+      </div>
+
+      <!-- THE Miracle Garden spotlight -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('photos/dubai-miracle-garden.png')">
+          <div><img loading="lazy" src="photos/dubai-miracle-garden.png" alt="Standing inside the heart-shaped flower arches at Dubai Miracle Garden" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">Miracle Garden · a thousand hearts, only one I cared about.</div>
+      </div>
+
+      <div class="duo">
+        <div class="reveal">
+          <div class="card">
+            <p><span class="stamp">OCT 18–26</span>Athuvi asked us to come to Abu Dhabi to spend time together. He wanted to bring everyone together. He booked us the ticket, he booked the room, he made all the arrangements.</p>
+            <p>Chechi and Chettan were already in China, so we were also planning to surprise them when they came back. We had a really good time with Appu and Jani. Also, Vineeth ettan's parents were there. But the suspense was broken by Athuvi himself!</p>
+            <p>We went to see Abu Dhabi: the palace, the Aquarium, the night boat ride, and Al Wahda Mall. As you remember, I was also working. Do you remember we had a fight in the hotel and you were lying on the floor, not ready to get up?</p>
+            <p>Then we went to Dubai. We stayed at Hilton DoubleTree for a few days and then moved to Marriott. The rooms were superb.</p>
+            <p>In Dubai, we visited Dubai Miracle Garden, Dubai Mall, Al Karama, and Deira for the boat ride. We also sneaked out to go to a lively party/stage performance at a club in Dubai with Chettan and Chechi. It was a first-time experience. It was a vibrant, high-energy atmosphere with colorful lights. It's the day I jaywalked for the first time in the UAE. <span class="accent">(I know CID already caught you and Vidya for jaywalking!)</span></p>
+            <p>Also, I got my second gift from Athuvi — a Samsung S25 Ultra! (The first one is obviously you.)</p>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="grid cols-1">
+            <div class="video-card">
+              <video src="photos/uae.mp4" muted loop playsinline preload="metadata" controls></video>
+              <div class="cap"><span class="label">UAE memories</span>The trip that Athuvi wanted.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- the trip itself · UAE moments -->
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="chapter-head" style="margin-bottom: 28px;">
+          <div class="number">UAE · the trip itself</div>
+          <h2 style="font-size: clamp(28px, 4vw, 42px);">A few days, <em>a lot</em> of frames</h2>
+          <div class="when">Abu Dhabi's white palace at golden hour, an abra at midnight, the spice souk, a quiet mall, and your father's hand on every plan.</div>
+        </div>
+
+        <!-- top row: with Athuvi + Qasr Al Watan -->
+        <div class="grid cols-2" style="max-width: 1000px; margin: 0 auto 28px;">
+          <div class="photo landscape" onclick="openLB('photos/dubai-with-athuvi.png')">
+            <img loading="lazy" src="photos/dubai-with-athuvi.png" alt="A selfie with Athuvi — Gokul, Gopika and her father, all three smiling under a blue evening sky">
+            <div class="cap">
+              <span class="label">with Athuvi · evening</span>
+              The three of us in one frame. The kind of photo I'll keep printing.
+            </div>
+          </div>
+          <div class="photo landscape" onclick="openLB('photos/dubai-qasr-al-watan.png')">
+            <img loading="lazy" src="photos/dubai-qasr-al-watan.png" alt="Standing together in front of Qasr Al Watan in Abu Dhabi">
+            <div class="cap">
+              <span class="label">Qasr Al Watan · Abu Dhabi</span>
+              White domes, golden light, your arm around me. A whole palace and I still only saw you.
+            </div>
+          </div>
+        </div>
+
+        <!-- middle row: family with baby (Vidya), abra night -->
+        <div class="grid cols-2" style="max-width: 1000px; margin: 0 auto 28px;">
+          <div class="photo landscape" onclick="openLB('photos/dubai-with-family-baby.png')">
+            <img loading="lazy" src="photos/dubai-with-family-baby.png" alt="The three of us with a tiny family baby in a Dubai lounge">
+            <div class="cap">
+              <span class="label">family afternoon</span>
+              A baby in your arms, your whole family in the background. You looked like you belonged exactly there.
+            </div>
+          </div>
+          <div class="photo landscape" onclick="openLB('photos/dubai-abra-night.png')">
+            <img loading="lazy" src="photos/dubai-abra-night.png" alt="Abra ride across Dubai Creek at night, city lights on the water behind us">
+            <div class="cap">
+              <span class="label">abra · Dubai Creek at night</span>
+              Wooden boat, salt in the wind, city lights smearing across the water. One of the quietest minutes of our year.
+            </div>
+          </div>
+        </div>
+
+        <!-- bottom row: mall + souk -->
+        <div class="grid cols-2" style="max-width: 1000px; margin: 0 auto;">
+          <div class="photo landscape" onclick="openLB('photos/dubai-mall.png')">
+            <img loading="lazy" src="photos/dubai-mall.png" alt="Mall selfie — Gokul in a printed shirt, Gopika in a cream collared dress">
+            <div class="cap">
+              <span class="label">a slow mall day</span>
+              No reason, no shopping list. Just walking together with nowhere to be.
+            </div>
+          </div>
+          <div class="photo landscape" onclick="openLB('photos/dubai-souk.png')">
+            <img loading="lazy" src="photos/dubai-souk.png" alt="Inside the souk — abayas, scarves, bags, the two of us standing in the middle of it">
+            <div class="cap">
+              <span class="label">the souk</span>
+              Abayas and scarves and a hundred colours. We didn't buy much. We didn't have to.
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 14 — CHILDHOOD          -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal" style="margin-bottom: 28px;">
+        <div class="number">chapter fourteen · Childhood</div>
+        <h2 style="font-size: clamp(28px, 4vw, 42px);">Tiny <em>you</em></h2>
+        <div class="when">The photos he showed us. The ones I want Monica to see too.</div>
+      </div>
+
+        <div class="grid cols-2" style="max-width: 880px; margin: 0 auto 28px;">
+          <div class="photo tall" onclick="openLB('photos/childhood-with-achan.png')">
+            <img loading="lazy" src="photos/childhood-with-achan.png" alt="Baby Gopika in her father's arms">
+            <div class="cap">
+              <span class="label">Achan & baby Gopu</span>
+              You in a red frock, him in a white shirt, both of you smiling at the same lens.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/childhood-family-album.png')">
+            <img loading="lazy" src="photos/childhood-family-album.png" alt="Family album page from Athuvi's collection">
+            <div class="cap">
+              <span class="label">the family album</span>
+              An album he kept safe for decades. The page he turned to first was yours.
+            </div>
+          </div>
+        </div>
+
+        <!-- four more childhood frames -->
+        <div class="grid cols-4" style="max-width: 1180px; margin: 0 auto;">
+          <div class="photo tall" onclick="openLB('photos/gopu-childhood-baby.png')">
+            <img loading="lazy" src="photos/gopu-childhood-baby.png" alt="Tiny Gopika with a bindi, kohl-lined eyes, against a magenta backdrop">
+            <div class="cap">
+              <span class="label">a studio frame</span>
+              Kohl, bindi, those big eyes already deciding everything. I would have known you anywhere.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/gopu-childhood-dolls.png')">
+            <img loading="lazy" src="photos/gopu-childhood-dolls.png" alt="A toddler Gopika in white between two porcelain dolls">
+            <div class="cap">
+              <span class="label">between two dolls</span>
+              A toddler with curls, a tiny gold chain, a quiet little smile. The first version of you.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/gopu-childhood-toddler.png')">
+            <img loading="lazy" src="photos/gopu-childhood-toddler.png" alt="Little Gopika in a checked top, held in an arm">
+            <div class="cap">
+              <span class="label">held safe</span>
+              Checkered top, a thread on your wrist, a hand around you. Always carried, even then.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/gopu-childhood-pink-dress.png')">
+            <img loading="lazy" src="photos/gopu-childhood-pink-dress.png" alt="A worn polaroid of little Gopika in a pink-and-purple dress, held in Athuvi's hand">
+            <div class="cap">
+              <span class="label">pink dress · a kept polaroid</span>
+              A photo folded into a wallet for decades. The corners gave up before the love did.
+            </div>
+          </div>
+        </div>
+
+        <!-- four more childhood frames — new additions -->
+        <div class="grid cols-4 reveal d2" style="max-width: 1180px; margin: 28px auto 0;">
+          <div class="photo tall" onclick="openLB('photos/childhood-1.jpeg')">
+            <img loading="lazy" src="photos/childhood-1.jpeg" alt="Little Gopika sitting sideways, looking back at the camera with a quiet smile">
+            <div class="cap">
+              <span class="label">a glance back</span>
+              That look — curious, cheeky, already knowing too much. I would have known you anywhere.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/childhood-2.jpeg')">
+            <img loading="lazy" src="photos/childhood-2.jpeg" alt="Baby Gopika sitting in the boot of a car with her mother">
+            <div class="cap">
+              <span class="label">with amma · somewhere on the road</span>
+              Amma beside you, the whole world still ahead. She already knew you were going to be something.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/childhood-3.jpeg')">
+            <img loading="lazy" src="photos/childhood-3.jpeg" alt="Baby Gopika with Chechi and Suresh Maman sitting together at home">
+            <div class="cap">
+              <span class="label">with Chechi & Suresh Maman</span>
+              The three of you, long before I arrived. A family that was already whole — and still made room for me.
+            </div>
+          </div>
+          <div class="photo tall" onclick="openLB('photos/childhood-4.jpeg')">
+            <img loading="lazy" src="photos/childhood-4.jpeg" alt="Baby Gopika held up by Chechi with Amma and Suresh Maman beside them">
+            <div class="cap">
+              <span class="label">the whole family</span>
+              Amma, Suresh Maman, Chechi — and tiny you in the middle of all of it. The way it has always been.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Athuvi-themed reflection -->
+      <div class="card narrow reveal d3" style="max-width: 760px; margin: 50px auto 0;">
+        <p style="text-align: center; font-style: italic;">Gopu, the way Athuvi looks at you is the way I want Monica to be looked at by us — like the world's softest, most precious thing. <span class="accent">A father's love is quiet. And it carries.</span> Yours did. Mine will. That's the promise.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 15 — CHRISTMAS GIFT     -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter fifteen · December 25, 2025</div>
+        <h2>The best <em>Christmas</em> gift</h2>
+        <div class="when">A saree shop. A joke about missed periods. A test kit. Two little lines that changed everything.</div>
+      </div>
+
+      <!-- THE test kit spotlight — the moment everything changed -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('photos/pregnancy-test-kit.png')">
+          <div><img loading="lazy" src="photos/pregnancy-test-kit.png" alt="Two i-know hCG strips, both positive" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">two strips. two lines each. one Monica.</div>
+      </div>
+
+      <div class="duo">
+        <div class="reveal">
+          <div class="photo landscape" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/00002579-PHOTO-2025-12-25-17-13-22.jpg')">
+            <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/00002579-PHOTO-2025-12-25-17-13-22.jpg" alt="Outside Credence Hospital">
+            <div class="cap">
+              <span class="label">Dec 25, 2025 · Credence Hospital</span>
+              Holding the report that re-arranged our whole life.
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="card">
+            <p><span class="stamp">DEC 25</span>We went saree shopping for Ammu's. Somewhere between two racks, you mentioned you'd missed your period. You said it like a joke — <em>"Maybe I'm pregnant, no?"</em></p>
+            <p>I didn't believe you. You asked me to get a kit anyway. I went. You tested. <span class="accent">It was positive.</span> Then a second strip — also positive. You were instantly happy. I was in a little shock, then complete happiness about ten minutes later.</p>
+            <p>I told my mom first, then Achan. You told your father. Everyone was overjoyed. Then history happened, five hospitals across 5 months, and then we decided to deliver the baby at KIMS.</p>
+            <p>Through every scan, every scare, every late-night Google search, you held it together better than anyone I know. <span class="accent">Mothering started long before the delivery date, Gopu.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- pregnancy portrait — three of us -->
+      <div class="spotlight reveal d2" style="margin-top: 50px;">
+        <div class="frame" onclick="openLB('photos/pregnancy-kurta-saree.png')" style="width: clamp(280px, 55vw, 640px); aspect-ratio: 4/3;">
+          <div><img loading="lazy" src="photos/pregnancy-kurta-saree.png" alt="Gokul holding Gopika from behind, her hand on her pregnant belly, both dressed up in kurta and saree" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">three of us, in one frame.</div>
+      </div>
+
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="chat-frame" style="max-width: 540px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">How are you doing</div>
+            </div>
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Nalla pain und at the spot of injection</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Everything for the baby ✨</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Rest edukk… samayam ind</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Monica and amma 🥰 miss you</div>
+              <div class="meta">— Feb 21, 2026 · the first time you said his name</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our little Monica subsection -->
+      <div class="reveal d2" style="margin-top: 80px;">
+        <div class="chapter-head" style="margin-bottom: 28px;">
+          <div class="number">arriving August 2026</div>
+          <h2 style="font-size: clamp(28px, 4vw, 42px);">Our little <em>Monica</em></h2>
+          <div class="when">Five hospitals. One son. One mother who has already done it all.</div>
+        </div>
+        <div class="card narrow" style="max-width: 760px; margin: 0 auto;">
+          <p>You went through Credence, then four more hospitals, then finally KIMS. You sat for scans, took the injections, kept smiling at the strangers with the ultrasound wand. <span class="accent">Through all of it, you barely complained.</span></p>
+          <p>You said you wanted to know if Monica was a boy or a girl — not for the gender, but because you wanted to start dreaming. <em>"Whether it's a boy or not, I want to dream accordingly."</em> I cannot believe I get to grow old with a person who thinks like that.</p>
+          <p>At first I couldn't digest it. The idea of being a father. Now I can't imagine the days before that news. <span class="accent">God blessed us abundantly, Gopu.</span> Let's be the kind of parents Monica will feel completely safe with. The kind we'd have written letters to if we could.</p>
+          <p style="text-align: center; padding-top: 12px;">
+            <span class="script" style="font-size: 32px; color: var(--rose-soft);">All the love we've made, now waiting to meet us.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 16 — HUNDRED LITTLE THIN -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter sixteen · always</div>
+        <h2>The <em>hundred</em> little things</h2>
+        <div class="when">You don't love loudly. You love by doing. And that has changed me.</div>
+      </div>
+
+      <!-- a candid moment at home -->
+      <div class="reveal" style="margin-bottom: 36px;">
+        <div class="photo landscape" style="max-width: 540px; margin: 0 auto;" onclick="openLB('photos/home-candid.png')">
+          <img loading="lazy" src="photos/home-candid.png" alt="You at home, mid-laugh, hand on your face">
+          <div class="cap">
+            <span class="label">you, on a regular evening</span>
+            No occasion, no makeup, no posing — just home, just you. My favourite version.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols-3 reveal" style="margin-bottom: 50px;">
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.52.32.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.52.32.jpeg" alt="Home cooking">
+          <div class="cap">
+            <span class="label">your kitchen, your love</span>
+            Chicken curry, rice, dahi — Tuesday afternoon, no occasion.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.52.57.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.52.57.jpeg" alt="Egg rice">
+          <div class="cap">
+            <span class="label">egg rice + curry</span>
+            "Kazhicho?" — the most loving question in any language.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.38.42.jpeg')">
+          <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.38.42.jpeg" alt="Breakfast">
+          <div class="cap">
+            <span class="label">breakfast for two</span>
+            Three plates, because you always serve me first.
+          </div>
+        </div>
+      </div>
+
+      <div class="things reveal d1" style="max-width: 1080px; margin: 0 auto;">
+        <div class="thing">
+          <span class="icon">01 · the water bottle</span>
+          <div class="text">You remind me to drink water like it's a religion. I never used to. Now I notice when the bottle is empty.</div>
+        </div>
+        <div class="thing">
+          <span class="icon">02 · the kitchen</span>
+          <div class="text">You cooked through Airbnb chaos. You still cook when you're tired. I do the utensils, but we both know who runs the home.</div>
+        </div>
+        <div class="thing">
+          <span class="icon">03 · Goa</span>
+          <div class="text">You let me go to Goa and called your college friends over to stay with you, just so I wouldn't worry. Who does that?</div>
+        </div>
+        <div class="thing">
+          <span class="icon">04 · the bus stop</span>
+          <div class="text">Even from the Airbnb, you'd walk to the bus stop every morning with me beside you. We made hardship feel like a date.</div>
+        </div>
+        <div class="thing">
+          <span class="icon">05 · "rest edukk"</span>
+          <div class="text">You ask me to bathe, to rest, to eat. You take better care of me than I'd ever take of myself.</div>
+        </div>
+        <div class="thing">
+          <span class="icon">06 · the patience</span>
+          <div class="text">You wait for me to come around. To my moods. To my silences. To my "this week" promises that take a month.</div>
+        </div>
+      </div>
+
+      <!-- a tiny everyday-romance exchange -->
+      <div class="reveal d2" style="margin-top: 60px;">
+        <div class="chat-frame" style="max-width: 560px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Good morning Kanna</div>
+            </div>
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Morning da 😘 chaaya undakkam?</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Njn undakam. Nee koonjyathram urangu.</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">😘😘😘</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Love you more than you can imagine 😘😘</div>
+              <div class="meta">— Jan 6, 2026 · a regular Tuesday</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- "I love to spend for you" snippet -->
+      <div class="reveal d3" style="margin-top: 26px;">
+        <div class="chat-frame" style="max-width: 560px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Anikk vendi Gokul spend cheyyunnundallo adalle. Eyakk chelav.</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">I love to spend for you.</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">So scene ila. Joli kittitt return cheytho 🙂</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Return venda. Nee vacho.</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Same like I love to support you. So allow me to send. ❤️</div>
+              <div class="meta">— Nov 13, 2025 · a small fight that ended in love</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 17 — HER LETTERS        -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">chapter seventeen · Feb & March 2025</div>
+        <h2>Your <em>words</em>, in your own hand</h2>
+        <div class="when">Two letters. Endless lines. The ones I quietly memorised.</div>
+      </div>
+
+      <div class="reveal d1" style="margin-bottom: 32px;">
+        <div class="letter-card">
+          <p>You are my wandering mind's rest place.</p>
+          <p>Sitting beside you feels like coming home in a language no map can give me.</p>
+          <p>You make me my best, most honest self — and that is the greatest gift anyone has ever given me.</p>
+          <div class="meta">
+            <span>From your letter</span>
+            <span>February 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="margin-bottom: 32px;">
+        <div class="letter-card">
+          <p>I want to be your friend. Your best friend.</p>
+          <p>The friendship in our relationship — that is the thing I'm most proud of.</p>
+          <p>You are the first person I have let in to every version of me. The only one I don't perform for.</p>
+          <div class="meta">
+            <span>From your letter</span>
+            <span>March 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d3">
+        <div class="letter-card">
+          <p>Let's together make a HOME — one that only holds peace, love, warmth, health and happiness.</p>
+          <p>If the foundation of what we have is strong and healthy enough, I can be anything you ever dreamed about.</p>
+          <p>I love you — so much, to a degree I honestly cannot define.</p>
+          <div class="meta">
+            <span>From your letter</span>
+            <span>March 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal" style="margin-top: 48px;">
+        <p style="text-align: center; font-style: italic;">Gopu, your letters anchor me. I re-read them on the days I forget who I am. And every single time, you reach across the page and pull me back. <span class="accent">Thank you for writing them. Thank you for waiting for me to write back.</span></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   CHAPTER 18 — FAMILY, FIGHTS     -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">chapter eighteen · January – April 2026</div>
+        <h2>Family, <em>fights</em> and forever</h2>
+        <div class="when">A cancelled Qatar trip, a war that kept everyone in Thiruvalla, a birthday in Bangalore and goodbyes at the airport.</div>
+      </div>
+
+      <div class="duo">
+        <div class="reveal">
+          <div class="card">
+            <p><span class="stamp">JAN '26</span>We were planning to go to Qatar for Jaini's first birthday. We'd booked the tickets, packed in our heads. We informed Athuvi well ahead, but still he changed the plan at the last moment. They started planning to celebrate the birthday in Thiruvalla. Then we had to cancel the ticket, and we did not get any refund back. When we told Athuvi about it, he blamed us for not taking a flexi ticket. 😏</p>
+            <p>Finally, the plan was made to gather in Thiruvalla. Jaini's first birthday was beautiful. Everyone came. Then war happened, flights got messy, and chechi and chettan couldn't go back. <span class="accent">It gave us more time together than we ever planned for,</span> even with the inevitable family fights.</p>
+            <p><span class="stamp">APR 1</span>Eventually you and I came back to Bangalore, and chechi and chettan flew in too. We went to pubs, took long late-night drives, cut chechi's birthday cake on April 1st, and dropped them at the airport the next day. <span class="accent">You laugh louder when your sister is around.</span> I love watching that version of you.</p>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <ul class="timeline">
+            <li><span class="when">Dec 25, 2025</span><span class="what">We find out about Monica.</span></li>
+            <li><span class="when">Jan 27, 2026</span><span class="what">Achan was meant to come for Pongala, plans shift.</span></li>
+            <li><span class="when">Feb 14, 2026</span><span class="what">382 days, 12 months, 550,080 minutes — still counting.</span></li>
+            <li><span class="when">Feb 21, 2026</span><span class="what">"Monica and amma 🥰 miss you." Officially Monica.</span></li>
+            <li><span class="when">Mar 22, 2026</span><span class="what">"Baby Monica 🥰🥰" — the first scan we framed.</span></li>
+            <li><span class="when">Apr 1, 2026</span><span class="what">Chechi's birthday cake at our home in Bangalore.</span></li>
+            <li><span class="when">Apr 22, 2026</span><span class="what">"The home miss you 🤍" — you, after a long day apart.</span></li>
+            <li><span class="when">May 25, 2026</span><span class="what">Your last birthday before you become a mother. ♡</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="margin-top: 50px;">
+        <div class="grid cols-2" style="max-width: 720px; margin: 0 auto;">
+          <div class="photo landscape" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.49.09.jpeg')">
+            <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.49.09.jpeg" alt="Smiling at home">
+            <div class="cap">
+              <span class="label">home in Thiruvalla</span>
+              The smile I run home for.
+            </div>
+          </div>
+          <div class="photo landscape" onclick="openLB('WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.37.09.jpeg')">
+            <img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/WhatsApp%20Image%202026-05-14%20at%2000.37.09.jpeg" alt="Restaurant date">
+            <div class="cap">
+              <span class="label">a quiet dinner</span>
+              You leaning in, me realising I won.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- late-night "miss you" chat -->
+      <div class="reveal d3" style="margin-top: 50px;">
+        <div class="chat-frame" style="max-width: 560px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Love you da kanna 😍</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Miss you both 🙃</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">See you soon ❤️</div>
+            </div>
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Miss you the moment you left 😘😘</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">🥰🥰😘 Love you</div>
+              <div class="meta">— Feb 21, 2026 · two of us missing each other, three of us a family</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- "Kannan sundari ayitt indalo" -->
+      <div class="reveal d3" style="margin-top: 26px;">
+        <div class="chat-frame" style="max-width: 560px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">[shares a video]</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Kannan sundari ayitt indalo 🥰</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Thanks 😘</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">Full appune pole ind ❤️</div>
+              <div class="meta">— March 2026 · my favourite kind of compliment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The real apology — Mar 5–6, 2026 -->
+      <div class="reveal d3" style="margin-top: 40px;">
+        <div class="card narrow" style="max-width: 760px; margin: 0 auto 24px; text-align: center;">
+          <p style="font-style: italic;">Some nights we fought. Some nights we said too much. And then one of us would write, and the other would forgive, and we'd keep going. <span class="accent">This one is for the nights we kept going.</span></p>
+        </div>
+
+        <div class="chat-frame" style="max-width: 580px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">I love you and i miss you the moment you left ampotty</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Am so so sorry for every hurt i caused</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">I dont really do anything on purpose maybe its my bad trait to be this harsh</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">U hav forgived me a lot and thats the reason we are where we are</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">Am sos sorry 🥹</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Njn allathe vere ara ullu ith okke kelkan.</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">We are gonna make it. ❤️</div>
+            </div>
+            <div class="row me">
+              <div class="bubble">I can understand. Its ok. 😘</div>
+              <div class="meta">— Mar 5–6, 2026 · the night we chose us, again</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   INTERLUDE — FRIENDS & FAMILY     -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">interlude · weddings, engagements & the people who shaped us</div>
+        <h2>The <em>people</em> in our story</h2>
+        <div class="when">Kittu's wedding — the first one after ours. Then a year of friends and family celebrations — marriages, engagements, gatherings — every one of them dressed in joy.</div>
+      </div>
+
+      <!-- Kittu's wedding spotlight (first marriage after ours) -->
+      <div class="spotlight reveal" style="margin-bottom: 48px;">
+        <div class="video-card" style="max-width: 380px; margin: 0 auto;">
+          <video src="photos/stories/kittus-wedding.mp4" muted loop playsinline preload="metadata" controls></video>
+          <div class="cap"><span class="label">Kittu's wedding · Aug 2025</span>The first wedding after ours. We went still glowing from our own.</div>
+        </div>
+      </div>
+
+      <!-- friends album cover + family-group-night, paired with a taller video on the right -->
+      <div class="reveal d1" style="margin-bottom: 30px;">
+        <div class="grid cols-2" style="max-width: 820px; margin: 0 auto;">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="photo landscape" onclick="openLB('photos/stories/friends-album.jpg')">
+              <img loading="lazy" src="photos/stories/friends-album.jpg" alt="Friends and family album frame">
+              <div class="cap">
+                <span class="label">a frame from the year</span>
+                The room, the people, the life we keep building together.
+              </div>
+            </div>
+            <div class="photo landscape" onclick="openLB('photos/family-group-night.png')">
+              <img loading="lazy" src="photos/family-group-night.png" alt="A whole-family garden night portrait — parents seated, siblings standing, kids in arms, Gokul selfie in the foreground">
+              <div class="cap">
+                <span class="label">the whole family · a garden night</span>
+                All of us, in one garden, in one frame. The kind of evening I want Monica to grow up inside.
+              </div>
+            </div>
+            <div class="photo landscape" onclick="openLB('photos/moment-with-niece.png')">
+              <img loading="lazy" src="photos/moment-with-niece.png" alt="A candid family moment — a tiny kid mid-bite on a paper plate, you smiling beside her">
+              <div class="cap">
+                <span class="label">a moment, mid-bite</span>
+                A small head, a paper plate, you smiling like a second amma. This is who you'll be for Monica.
+              </div>
+            </div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/friends-1.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">all dressed up</span>One of those nights everyone got ready and the photos kept flooding in.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- friends video row -->
+      <div class="reveal d2">
+        <div class="video-row">
+          <div class="video-card">
+            <video src="photos/stories/friends-2.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">an evening</span>The way you light up when our people are in the room.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/friends-3.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">celebration</span>Music, food, family — all of it loud, all of it ours.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/friends-4.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">a small moment</span>Twelve seconds of a much longer night.</div>
+          </div>
+          <div class="video-card">
+            <video src="photos/stories/friends-5.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">later that year</span>Another engagement, another wedding, another reason to gather.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card narrow reveal d2" style="max-width: 760px; margin: 32px auto 0;">
+        <p>Some of these are weddings, some are engagements, some are just dinners that turned into events. <span class="accent">Every one of them is a frame in our life,</span> and you are in every frame, Gopu — laughing, dressing everyone up, refilling glasses, holding babies, making sure nobody felt left out. That's a kind of love most people don't notice. I notice it.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   INTERLUDE — HYDERABAD            -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head reveal">
+        <div class="number">interlude · early April 2026 · Hyderabad</div>
+        <h2>The <em>Charminar</em>, the dosas, the little big trip</h2>
+        <div class="when">Hotel Asrani International, the iconic Charminar, exploring HITEC City at night, tasty apple pie at Paul's, and Niloufer Cafe.</div>
+      </div>
+
+      <!-- Charminar headline -->
+      <div class="spotlight reveal" style="margin-bottom: 50px;">
+        <div class="frame" onclick="openLB('photos/hyd-charminar.jpg')">
+          <div><img loading="lazy" src="photos/hyd-charminar.jpg" alt="Charminar in Hyderabad — old city, full of colour and bangles below" /></div>
+        </div>
+        <div class="script" style="font-size: 26px; color: var(--rose-soft);">Charminar · old city, bangles, and you in every frame.</div>
+      </div>
+
+      <!-- 3-up row: friends + park + folk -->
+      <div class="grid cols-3 reveal d1" style="margin-bottom: 28px;">
+        <div class="photo tall" onclick="openLB('photos/hyd-paul-friends.jpg')">
+          <img loading="lazy" src="photos/hyd-paul-friends.jpg" alt="Lunch at Paul with friends">
+          <div class="cap">
+            <span class="label">Paul · afternoon</span>
+            Two couples, four phones, one very happy us.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('photos/hyd-gopika-krishna.jpg')">
+          <img loading="lazy" src="photos/hyd-gopika-krishna.jpg" alt="You next to a Krishna statue">
+          <div class="cap">
+            <span class="label">Krishna in the park</span>
+            You stood next to him like he was an old friend.
+          </div>
+        </div>
+        <div class="photo tall" onclick="openLB('photos/hyd-krishna-park.jpg')">
+          <img loading="lazy" src="photos/hyd-krishna-park.jpg" alt="Krishna statue above a pond">
+          <div class="cap">
+            <span class="label">over the pond</span>
+            A boy with a flute, three women in the water — public art that stopped us for a while.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-up row: Shilparamam + Gokul folk -->
+      <div class="grid cols-2 reveal d2" style="margin-bottom: 40px;">
+        <div class="photo landscape" onclick="openLB('photos/hyd-shilparamam.jpg')">
+          <img loading="lazy" src="photos/hyd-shilparamam.jpg" alt="Shilparamam craftsmen at work">
+          <div class="cap">
+            <span class="label">Shilparamam</span>
+            Craftsmen with hammers older than the city. You stood and watched. So did I.
+          </div>
+        </div>
+        <div class="photo landscape" onclick="openLB('photos/hyd-gokul-folk.jpg')">
+          <img loading="lazy" src="photos/hyd-gokul-folk.jpg" alt="Gokul next to a folk-village figure">
+          <div class="cap">
+            <span class="label">your husband, mid-pose</span>
+            You laughed at me for a full minute. Worth it.
+          </div>
+        </div>
+      </div>
+
+      <div class="card narrow reveal d2" style="max-width: 760px; margin: 0 auto;">
+        <p>We managed to cover a mix of everything. We visited the iconic Charminar and saw the grand, newly built Dr. B.R. Ambedkar Telangana State Secretariat. In the evening, we explored Shilparamam Art & Craft Village, walking through the traditional setups and ethnic shopping. <span class="accent">You made me promise we'd come back.</span></p>
+        <p>Our nights were spent exploring the city nightscapes around HITEC City. We enjoyed meals out with the group — went to Paul's and Niloufer Cafe. We even ate a really tasty apple pie! It was a short trip, but we made every moment count.</p>
+      </div>
+
+      <!-- Hyderabad in motion -->
+      <div class="reveal d2" style="margin-top: 40px;">
+        <div class="chapter-head" style="margin-bottom: 22px;">
+          <div class="number">Hyderabad, in motion</div>
+        </div>
+        <div style="max-width: 360px; margin: 0 auto;">
+          <div class="video-card">
+            <video src="photos/stories/hyd-story.mp4" muted loop playsinline preload="metadata" controls></video>
+            <div class="cap"><span class="label">old city · spring '26</span>A few seconds from the trip — you, the colours, the rest of the world blurry behind.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   INTERLUDE — VISHU                -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">interlude · April 15, 2026 · Vishu</div>
+        <h2>Our first <em>Vishu</em></h2>
+        <div class="when">A kani-konna, a Krishna kept by the window, four friends, and a sadya you set with your own hands.</div>
+      </div>
+
+      <div class="grid cols-2 reveal" style="margin-bottom: 40px;">
+        <div class="photo landscape" onclick="openLB('photos/stories/vishu-kani.jpg')">
+          <img loading="lazy" src="photos/stories/vishu-kani.jpg" alt="The Vishu kani we arranged together">
+          <div class="cap">
+            <span class="label">Vishu kani · 1:53 AM</span>
+            Fruits, gold, kasavu, and a little Krishna — the first thing my eyes were meant to see.
+          </div>
+        </div>
+        <div class="photo landscape" onclick="openLB('photos/vishu-sadya.jpg')">
+          <img loading="lazy" src="photos/vishu-sadya.jpg" alt="The four of us behind a Vishu sadya on banana leaves">
+          <div class="cap">
+            <span class="label">Vishu sadya · banana leaves</span>
+            Avial, thoran, payasam, pulissery — and us, eating like we'd done this our whole lives.
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal d1">
+        <p><span class="stamp">APR 14</span>A day before, we cleaned the house corner to corner. You started cutting veggies and cooking some curries. We did some Vishu purchases and invited Kittu and his wife to celebrate together. We couldn't get kani konna, so we asked Kittu to buy some, and that evening I went to pick up the flowers from him. We arranged the Vishu kani as grand as we could.</p>
+        <p><span class="stamp">APR 15</span>On Vishu morning, I woke up early, lit the lamp, woke you up with your eyes closed, showed you the kani, and gave you kaineettam. Then you spent the morning making the sadya. Avial, thoran, payasam, pulissery — banana leaves laid out for four.</p>
+        <p><span class="accent">"Happy Vishu, goku muthe 😘😘😘"</span> — your message that landed at 1:53 AM, before the day even started.</p>
+        <p>Most years, I wake up to no kani. This year, I woke up to one set by you. <em>Every year after this, I want exactly that.</em></p>
+      </div>
+
+      <!-- the Vishu morning message -->
+      <div class="reveal d2" style="margin-top: 36px;">
+        <div class="chat-frame" style="max-width: 540px; margin: 0 auto;">
+          <div class="chat">
+            <div class="row her">
+              <div class="name">Kannan</div>
+              <div class="bubble">Happy Vishu goku muthe 😘😘😘</div>
+              <div class="meta">— Apr 15, 2026 · 1:53 AM</div>
+            </div>
+            <div class="row her">
+              <div class="bubble">🌼വിഷു ആശംസകൾ🌼</div>
+            </div>
+            <div class="row me">
+              <div class="name">Gokul</div>
+              <div class="bubble">Wishing you back, kanna. Best Vishu kani I have ever seen — because you laid it. ❤️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="motif reveal">For my Gopu</div>
+
+
+  <!-- ═══════════════════════════════ -->
+  <!--   THE BIRTHDAY LETTER             -->
+  <!-- ═══════════════════════════════ -->
+  <section class="chapter" id="birthday">
+    <div class="wrap narrow">
+      <div class="chapter-head reveal">
+        <div class="number">finally · May 25, 2026</div>
+        <h2>Happy <em>Birthday</em>, Gopika</h2>
+        <div class="when">The letter you waited for. The one you deserved long before today.</div>
+      </div>
+
+      <div class="spotlight reveal d1" style="margin-bottom: 50px;">
+        <div class="frame">
+          <div><img loading="lazy" src="WhatsApp%20Chat%20-%20Kannan/caricature.png" alt="Our caricature" /></div>
+        </div>
+        <div class="script" style="font-size: 28px; color: var(--rose-soft);">us, forever.</div>
+      </div>
+
+      <div class="birthday-frame reveal d2">
+        <div class="salutation">My dearest Gopu,</div>
+        <p>You always said I should write you a letter — long, honest, from the heart. You wrote me beautiful ones first, and waited. <span class="em">So here it is, Gopika Sujatha.</span> Not as beautiful as yours, but it's real, and it comes from the only place I mean anything I say.</p>
+        <p>You came into my life like a void quietly being filled. You are younger than me, you carry your own worries, and yet, somehow, between everything, you chose to marry me, build a home for me, cook for me, remind me to drink water, and raise a child with me. I don't take a single one of those things for granted. <span class="em">Not one, Gopu.</span></p>
+        <p>You are going to be an extraordinary mother. You already are, in every way that matters. Monica is lucky beyond measure — and so am I. This birthday, your last before you become a mother, I want you to feel completely seen. You are thoughtful, loyal, brilliant, beautiful, deeply funny, deeply loving, and mine.</p>
+        <p>Stay hydrated. Rest. Let me carry more. You've been holding so much — our baby, my moods, our home, your studies, two families — and you do it all with a grace I am still learning to name.</p>
+        <p>I swear no one will ever speak badly about you in my presence. <span class="em">The respect I have for you is permanent.</span> Unexplainable. I am, no matter what happens, grateful that you said yes that afternoon in Thiruvalla.</p>
+        <p>I love you. So so so much. More than I'll ever fit on any page, in any letter, in any lifetime.</p>
+
+        <div class="signoff">
+          <div class="closing">forever your person,</div>
+          <div class="signature">Gokul</div>
+          <div class="stamp">written May 25, 2026 — with all of it</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="copy">
+    For Gopika Sujatha. <span class="heart">♥</span><br/>
+    Built with everything I have, by Gokul. May 25, 2026.
+  </p>
+</footer>
+
+
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <button class="close" aria-label="Close">×</button>
+  <img loading="lazy" id="lbImg" src="" alt="" />
+</div>
+
+
+<script>
+  // ─── Scroll reveal ────────────────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ─── Lightbox ─────────────────────
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  function openLB(src) {
+    lbImg.src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 300);
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLB();
+  });
+
+  // ─── Petals (gentle falling glyphs) ──
+  (function petals() {
+    const container = document.getElementById('petals');
+    const glyphs = ['❀', '✿', '❁', '·', '✦', '·'];
+    const colors = ['#c98a9b', '#e7c4cd', '#a78bfa', '#d8b07e', '#ffffff'];
+    const count = 14;
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('span');
+      el.className = 'petal';
+      el.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      el.style.left = (Math.random() * 100) + 'vw';
+      el.style.fontSize = (10 + Math.random() * 12) + 'px';
+      el.style.color = colors[Math.floor(Math.random() * colors.length)];
+      el.style.animationDuration = (12 + Math.random() * 18) + 's';
+      el.style.animationDelay = (Math.random() * 18) + 's';
+      el.style.opacity = '0';
+      container.appendChild(el);
+    }
+  })();
+
+  // ─── Subtle parallax for hero bg (rAF-throttled) ──
+  const heroBg = document.querySelector('.hero-bg img');
+  if (heroBg) {
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = `translate3d(0, ${y * 0.25}px, 0) scale(${1 + y * 0.0004})`;
+      }
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ─── Reduce motion respect ─────────
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.petal').forEach(el => el.style.display = 'none');
+  }
+</script>
+
+</body>
+</html>

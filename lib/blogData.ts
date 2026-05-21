@@ -2,7 +2,7 @@ export interface BlogPost {
     slug: string;
     title: string;
     excerpt: string;
-    category: "project-management" | "trading";
+    category: "project-management" | "trading" | "my-life";
     date: string;
     readTime: string;
     content?: string;
@@ -23,6 +23,13 @@ export const blogCategories = {
         icon: "📈",
         gradient: "from-orange-500/20 to-red-500/20",
         borderGradient: "from-orange-500 to-red-500",
+    },
+    "my-life": {
+        title: "My Life",
+        description: "A personal scrapbook — chapters of love, family, and the journey that made us who we are",
+        icon: "♡",
+        gradient: "from-violet-500/20 to-rose-500/20",
+        borderGradient: "from-violet-500 to-rose-500",
     }
 };
 

@@ -63,7 +63,7 @@ export default function BlogsPage() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <BlogCategoryCard
                         title={blogCategories["project-management"].title}
                         description={blogCategories["project-management"].description}
@@ -81,6 +81,15 @@ export default function BlogsPage() {
                         borderGradient={blogCategories.trading.borderGradient}
                         href="/blogs/trading"
                         count={tradingBlogs.length}
+                    />
+                    <BlogCategoryCard
+                        title={blogCategories["my-life"].title}
+                        description={blogCategories["my-life"].description}
+                        icon={blogCategories["my-life"].icon}
+                        gradient={blogCategories["my-life"].gradient}
+                        borderGradient={blogCategories["my-life"].borderGradient}
+                        href="/my-life/index.html"
+                        count={1}
                     />
                 </div>
             </section>
@@ -135,7 +144,7 @@ export default function BlogsPage() {
                             <p className="text-xl text-white/70 max-w-2xl mx-auto mb-8">
                                 Explore our complete collection of articles and insights
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                                 <a
                                     href="/blogs/project-management"
                                     className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
@@ -147,6 +156,12 @@ export default function BlogsPage() {
                                     className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
                                 >
                                     View Trading Insights
+                                </a>
+                                <a
+                                    href="/my-life/index.html"
+                                    className="px-8 py-4 bg-gradient-to-r from-violet-500 to-rose-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-violet-500/50 transition-all duration-300 hover:scale-105"
+                                >
+                                    View My Life
                                 </a>
                             </div>
                         </div>
